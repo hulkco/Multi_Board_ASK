@@ -32,6 +32,7 @@
 *.app
 # MacOs temporary files
 *.DS_Storage
+.DS_Storage
 
 # Temporary files
 *.000
