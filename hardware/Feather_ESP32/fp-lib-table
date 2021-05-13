@@ -1,3 +1,0 @@
-(fp_lib_table
-  (lib (name Feather_ESP32)(type KiCad)(uri ${KIPRJMOD}/footprints/Feather_ESP32.pretty)(options "")(descr ""))
-)

@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<!-- saved from url=(0138)https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico -->
+<html lang="es" country="MX"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./PicoMKRAdapter_MKR_Shields_files/munchkin.js"></script><meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett"><link rel="dns-prefetch" href="https://files1.element14.com/"><link rel="preconnect" href="https://files1.element14.com/"><link rel="canonical" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico"><meta property="og:url" content="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico"><meta property="og:type" content="article"><meta property="article:published_time" content="2021-01-25T02:38:36Z"><meta property="article:modified_time" content="2021-02-12T11:00:31Z"><meta name="title" content="PicoMKRAdapter - connect Arduino MKR Shields to... | element14 | Raspberry Pi"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@e14Community"><meta name="twitter:creator" content="@e14Community"><meta name="twitter:title" content="PicoMKRAdapter - connect Arduino MKR Shields to Raspberry Pi Pico"><meta property="og:title" content="PicoMKRAdapter - connect Arduino MKR Shields to Raspberry Pi Pico"><meta name="keywords" content="adapter, arduino_mkr, pi_pico, raspberry_pi_pico"><meta name="description" content="Lea sobre &#39;PicoMKRAdapter - connect Arduino MKR Shields to Raspberry Pi Pico&#39; en element14.com. I was very excited when I heard about the new Raspberry Pi Pico (Raspberry Pi Pico )  Overview  I thought about all the projects I am going to built with"><meta property="og:description" content="I was very excited when I heard about the new Raspberry Pi Pico (Raspberry Pi Pico )  Overview  I thought about all the projects I am going to built with"><meta name="twitter:description" content="I was very excited when I heard about the new Raspberry Pi Pico (Raspberry Pi Pico )  Overview  I thought about all the projects I am going to built with"><link rel="apple-touch-icon" sizes="57x57" href="https://www.element14.com/community/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="https://www.element14.com/community/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="https://www.element14.com/community/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="https://www.element14.com/community/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="https://www.element14.com/community/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="https://www.element14.com/community/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="https://www.element14.com/community/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="https://www.element14.com/community/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="https://www.element14.com/community/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" href="https://www.element14.com/community/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="https://www.element14.com/community/favicon-194x194.png" sizes="194x194"><link rel="icon" type="image/png" href="https://www.element14.com/community/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="https://www.element14.com/community/android-chrome-192x192.png" sizes="192x192"><link rel="manifest" href="https://www.element14.com/community/manifest.json"><link rel="mask-icon" href="https://www.element14.com/community/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#2b5797"><meta name="msapplication-TileImage" content="/community/mstile-144x144.png"><meta name="theme-color" content="#ffffff"><meta property="fb:app_id" content="354647788222159"><title>PicoMKRAdapter - connect Arduino MKR Shields to... | element14 | Raspberry Pi</title><meta name="viewport" content="user-scalable=0, initial-scale=1.0"><!--[if IE]><link rel="stylesheet" href="//files1.element14.com/community/9.0.5.998b920/styles/jive.ie.css?v=2021-04-27 01:20" type="text/css" media="all"/><![endif]--><!--[if !IE]> --><link rel="stylesheet" href="./PicoMKRAdapter_MKR_Shields_files/jive.css" type="text/css" media="all"><!-- <![endif]--><link rel="search" href="https://www.element14.com/community/opensearch.xml" title="element14 Community" type="application/opensearchdescription+xml"><link rel="shortcut icon" type="image/x-icon" href="https://www.element14.com/community/favicon.ico"><!--[if lt IE 9]><script src="//files1.element14.com/community/9.0.5.998b920/resources/scripts/vendor/html5shiv.min.js"></script><![endif]--><script type="text/javascript" async="" src="./PicoMKRAdapter_MKR_Shields_files/insight.min.js"></script><script async="" src="./PicoMKRAdapter_MKR_Shields_files/uwt.js"></script><script async="" src="./PicoMKRAdapter_MKR_Shields_files/analytics.js"></script><script src="./PicoMKRAdapter_MKR_Shields_files/1412227485705966" async=""></script><script async="" src="./PicoMKRAdapter_MKR_Shields_files/fbevents.js"></script><script src="./PicoMKRAdapter_MKR_Shields_files/0598f7c3704d55f7d31595e1be16ee61.js"></script>
+<script>console.log('e14-global.soy loading'); var e14Country = 'MX'; var e14ServerProperties = {buyGoesToCart:  false , botOptimsation: false, conversant:  true , cookieDirectiveCountryList: 'AT,BE,BG,CZ,DK,EE,FI,FR,DE,HU,IE,IT,LV,LT,NL,PL,PT,RO,SK,SI,ES,SE,UK,EXPORT,ZA,GR,RS', cookieDirectiveVersion: '', cssCompressed:  true ,dtssAuthorUsers: 'dtss-publish,e14dtts', dtssStaticVersion: '13', eventPopupGlobalSwitch: 'true', eventPopupIntervalInMillis: '86400000', eventPopupWebinarContainerID: '2413', eventPopupWebinarContainerRecursive:  true , eventPopupWebinarContainerType: '14', feedbackDSURL: 'https:\/\/element14.eu.qualtrics.com\/SE\/?SID\x3dSV_3dV7Sl41sK5CQap', feedbackTab:  false , feedbackURL: 'https:\/\/element14.eu.qualtrics.com\/SE\/?SID\x3dSV_ex5DNLnpewqc7k1', fbPixel:  true , fbSDK:  false , gPixel:  true , gAnal:  true , gAnalEvt:  true , gOpt:  false , gOptAF:  false , gRecapLogin:  true , gRecapReg:  true , gRecapKey: '6LfklvoUAAAAAIpvjAS2BE9xpC0jP0-EE0A56TGP', isMobile: false, jsErrorSendLimit: parseInt('5'), jsErrorSentCount: 0, jsLoadingTest: 'default', lazyLoadImages:  true || true , lazyLoadChromeEnabled:  true , lPixel:  true , marketoJSLib: '\/\/app-lon08.marketo.com\/js\/forms2\/js\/forms2.min.js', marketoURL: '\/\/app-lon08.marketo.com', marketoAccountID: '059-JXI-597', liveAgentEnabled:  true , marketo:  true , masheryURL: 'https:\/\/api.element14.com\/catalog\/products', masheryKey: '6ayk7fwykyakewdebxfewehr\x26cachebuster\x3d2', omnitureRSID: 'pfcommunity', omnitureHierarchy: 'FILLED IN LATER BY e14ParseBreadcrumbTrail()', omnitureChannel: 'FILLED IN LATER BY e14CallOmniture()', pimageddonURL: '', pimageddonCPCURL: '', pimageddonMCMURL: '', productSearchEngineSKU: '1000', productSearchEngineSKUMulti: '1008', productSearchEngineSKUs: '1005', resourceVersion: '2021-04-27 01:20', resourceDomain: '\/\/files1.element14.com\/community', runningInIFrame: (window.location.href.indexOf('iframe_me')>-1), smartPanelsEnabled:  true , storePreview:  false , storePreviewThrottle: parseInt('10'), tPixel:  true }; if ( true ) {var botUserAgents = [ 'googlebot', 'google-structured-data-testing-tool', 'bingbot', 'linkedinbot', 'mediapartners-google' ]; if (new RegExp(botUserAgents.join("|")).test(navigator.userAgent)) e14ServerProperties.botOptimsation=true;}var e14CurrentObject = {id:  37075.0 , objectType:  38.0 }; var e14CurrentContainer = {name: 'element14',id:  2475.0 , objectType:  14.0 }; var e14JSErrorArray = []; window.onerror = function(message, filePath, line) {var file = filePath.substring(filePath.lastIndexOf('/')+1); var errorText = 'jsError-**BROWSER**-L'+line+'-'+file+'-'+message; if (e14ServerProperties.omnitureReady!=true) {e14JSErrorArray.push(errorText);} else {e14LogJSErrors(errorText);}};</script><!-- plugin javascript --><!-- end plugin javascript --><script src="./PicoMKRAdapter_MKR_Shields_files/d857ddbb2aa63ec5ad8c31ac7bf27a64.js"></script>
+
+    
+	<meta name="titleEscaped" content="true">
+
+	
+        <link rel="alternate" type="application/rss+xml" title="Fuente de publicaciones recientes" href="https://www.element14.com/community/community/raspberry-pi/blog/feeds/posts">
+
+        <link rel="alternate" type="application/rss+xml" title="Fuente de comentarios recientes" href="https://www.element14.com/community/community/raspberry-pi/blog/feeds/comments">
+
+        <link rel="alternate" type="application/rss+xml" title="Fuente de comentarios recientes para &#39;&#39;PicoMKRAdapter - connect Arduino MKR Shields to Raspberry Pi Pico&#39;&#39;" href="https://www.element14.com/community/community/raspberry-pi/blog/feeds/comments?blogPost=37075">
+
+	
+	<link rel="stylesheet" href="./PicoMKRAdapter_MKR_Shields_files/content.css" type="text/css" media="all">
+    <link rel="stylesheet" href="./PicoMKRAdapter_MKR_Shields_files/jive-content.css" type="text/css" media="all">
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="./PicoMKRAdapter_MKR_Shields_files/jive-responsive.css" type="text/css" media="all"><link rel="stylesheet" href="./PicoMKRAdapter_MKR_Shields_files/theme-min.css" type="text/css" media="all"><link rel="stylesheet" href="./PicoMKRAdapter_MKR_Shields_files/override-newark.css" type="text/css" media="all"><noscript><link rel="stylesheet" href="//files1.element14.com/community/9.0.5.998b920/plugins/gamification/resources/styles/n4jive.concat.css?v=2021-04-27%2001%3A20" type="text/css" media="all"/><link rel="stylesheet" href="//files1.element14.com/community/9.0.5.998b920/resources/styles/exobjects-icons/jive-exobjects-icons.css?v=2021-04-27%2001%3A20" type="text/css" media="all"/></noscript><style></style><script>bazadebezolkohpepadr="300893502"</script><script type="text/javascript" src="./PicoMKRAdapter_MKR_Shields_files/11ef4677" defer=""></script><link rel="stylesheet" type="text/css" media="all" href="./PicoMKRAdapter_MKR_Shields_files/n4jive.concat-min.css"><link rel="stylesheet" type="text/css" media="all" href="./PicoMKRAdapter_MKR_Shields_files/jive-exobjects-icons.css"><style type="text/css">#j-create-link-project {display:none}</style></head><body class="jive-body-content j-blog  j-header-mode-custom  j-simple-homepage newarkBody j-responsive-md" style=""><noscript><img src="http://premierfarnell.112.2o7.net/b/ss/pfcommunity/1/H.26.1--NS/0" height="1" width="1" style="display:none" /><img src="https://www.facebook.com/tr?id=1412227485705966&ev=PageView&noscript=1&dpo=LDU&dpoco=0&dpost=0" height="1" width="1" style="display:none" /></noscript><a id="top"></a><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#j-main" class="j-skip-nav">Omitir navegación</a><div id="j-header-wrap" data-company-name="" data-no-user-bar="false" role="banner"><header id="j-header" class="clearfix"><div id="j-basic-wrap"><h5 id="logo"><a role="img" href="https://www.element14.com/community/welcome" class="j-header-logo">element14</a></h5></div><div id="j-search"><div id="j-spotlight-search" role="search" data-mode="custom"><span class="j-ui-elem j-search-left"><span id="searchpopupanchor"></span></span><span><label for="autosearch" class="j-508-label" style="display:none;">Buscar</label><input data-spotlight-enabled="true" id="autosearch" class="j-ui-elem" data-component="autosearch" data-popup-anchor="searchpopupanchor" placeholder="Buscar" type="search" role="combobox" aria-labelledby="autosearch" aria-expanded="false" data-hidetypes="bookmarks frequent recent " data-community-name="element14 Community" data-filters="" data-origin="spotlight" aria-hidden="false" aria-busy="false"><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" id="mob-spotlight-cancel">Cancel</a></span><span class="j-ui-elem j-search-right"></span><span class="jive-icon-sml jive-glyph-delete" data-component="button" data-type="clear" data-field="autosearch"></span><button data-component="button" data-type="search" data-field="autosearch"></button></div></div><div id="j-links"><ul class="j-globalNav"><li class="j-guest j-globalNav-li"><span class="j-user-welcome">Bienvenido/a, &nbsp;</span><span class="j-user-name j-navLabel">Invitado</span></li><li class="j-nav-create j-nav-user j-globalNav-li js-satellite-nav-container js-satellite-nav-container-anon" aria-haspopup="true"><ul id="j-satNav"><li class="login"><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" class="login" id="navLogin" title="Iniciar sesión">Iniciar sesión</a></li><li class="register"><a href="https://www.element14.com/community/create-account.jspa" class="register" title="Registro" id="jive-nav-link-reg">Registro</a></li></ul><div id="j-satNav-menu" class="clearfix" style="display:none;"></div><span data-count="0" class="j-js-update-indicator j-update-count zero  j-navbadge-count j-ui-elem" style="display:none;">0<span class="j-508-label" aria-hidden="true">Elementos de la bandeja de entrada no leídos</span></span></li><li class="j-activity j-globalNav-li"><a href="https://www.element14.com/community/news" class="j-globalNavLink j-ui-elem"><span class="nav-link j-ui-elem">Actividad</span></a></li><li id="google_translate_element" class="j-translate j-globalNav-li"><span id="loading" style="display:none"><img src="./PicoMKRAdapter_MKR_Shields_files/ajax-loader-small-circleball.gif"></span><a id="translateActivate" href="javascript:void(0)" onclick="e14InitGoogleTranslateLoader();" class="j-globalNavLink"><span class="nav-link j-ui-elem"><span class="custom-icon google-translate"></span> Translate</span></a></li><li class="j-locale j-globalNav-li"><a href="https://www.element14.com/community/guest-preferences!input.jspa" id="localeQuickConfigLink" class="j-globalNavLink j-ui-elem" title=" español : MX"><span class="nav-link j-ui-elem"><span class="flag-icon mx"></span><span class="jive-icon-glyph icon-arrow-down2"></span></span></a></li><li id="mobile-search" class="j-globalNav-li mobile-tool"><a class="j-globalNavLink" title="Buscar" aria-label="Buscar" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#"></a></li></ul></div><!-- Navigational buttons/links --><nav id="j-globalNav-bg" role="navigation" aria-label="element14" data-mode="custom"><ul id="j-globalNav" role="menubar" class="j-globalNav"><li id="mobile-menu" class="mobile-tool"><a class="j-globalNavLink" title="Explorar" aria-label="Explorar" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#"></a></li><li id="jive-nav-link-home" class=" j-globalNav-li j-ui-elem"><a href="https://www.element14.com/community/welcome" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">Inicio</span></a></li><li id="jive-navbar-link-news" class=" j-globalNav-li j-ui-elem"><a href="https://www.element14.com/community/news" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">Actividad</span></a></li><li id="jive-nav-link-conx" class=" j-globalNav-li j-ui-elem"><a href="https://www.element14.com/community/people" class="j-globalNavLink j-ui-elem " role="menuitem"><span class="nav-link  ">Personas</span></a></li><li id="custom-nav-link-content" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/content" data-icid="menubar_content_all" data-menu="#custom-nav-menu-content"><span class="nav-link">Contenido <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-content" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[blogpost]" data-icid="menubar_content_blogs">Blogs</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[document]" data-icid="menubar_content_docs">Documentos</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[thread]" data-icid="menubar_content_discussions">Debates</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[poll]" data-icid="menubar_content_polls">Sondeos</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[video]" data-icid="menubar_content_videos">Vídeos</a></li><li><a href="https://www.element14.com/community/content?filterID=all~objecttype~objecttype[event]" data-icid="menubar_content_events">Eventos</a></li><li><a href="https://www.element14.com/community/community/members#status-updates" data-icid="menubar_content_statusupdates">Actualizaciones del estado</a></li><li style="font-weight:bold;"><a href="https://www.element14.com/community/content" data-icid="menubar_content_all">Más&nbsp;Contenido<span class="e14-arrow-right" style="display: inline-block; margin-left: 5px; margin-bottom: 1px;"></span></a></li></ul></div></section></li><li id="custom-nav-link-participate" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/docs/DOC-74927" data-icid="menubar_participate" data-menu="#custom-nav-menu-participate"><span class="nav-link">Participe<span class="jive-icon-glyph icon-arrow-down2" style="padding-left: 5px;"></span></span></a><section id="custom-nav-menu-participate" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li style="font-weight: bold;"><a href="https://www.element14.com/community/docs/DOC-74927" data-icid="menubar_participate_whyjoin">¿Por qué participar?</a></li><li><a href="https://www.element14.com/community/docs/DOC-53274" data-icid="menubar_participate_achievements-levels">Niveles de éxito</a></li><li><a href="https://www.element14.com/community/community/support" data-icid="menubar_participate_feedback">Comentarios y soporte</a></li><li><a href="https://www.element14.com/community/community/members" data-icid="menubar_participate_member-hub">Central de miembros</a></li><li><a href="https://www.element14.com/community/groups/top-members" data-icid="menubar_participate_halloffame">Miembros principales</a></li><li><a href="https://www.element14.com/community/community/members/thisweekoncommunity" data-icid="menubar_participate_whatsnew">Novedades </a></li></ul></div></section></li><li id="custom-nav-link-learn" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/places?filterID=all~tag[nav_learn]" data-icid="menubar_learn" data-menu="#custom-nav-menu-learn"><span class="nav-link">Aprenda <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-learn" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/community/arduino/arduino-tutorials" data-icid="menubar_learn_arduino-tutorials">Instructivos de Arduino</a></li><li><a href="https://www.element14.com/community/community/businessofengineering" data-icid="menubar_learn_busofengineering">El negocio de la ingeniería</a></li><li><a href="https://www.element14.com/community/community/publications/ebooks" data-icid="menubar_learn_ebooks">eBooks</a></li><li><a href="https://www.element14.com/community/community/element14-presents" data-icid="menubar_build_element14presents">element14 presenta</a></li><li><a href="https://www.element14.com/community/community/learning-center/online-learning/essentials" data-icid="menubar_learn_essentials">Fundamentos</a></li><li><a href="https://www.element14.com/community/groups/internet-of-things" data-icid="menubar_learn_iot">Internet de las cosas</a></li><li><a href="https://www.element14.com/community/community/learning-center" data-icid="menubar_learn_learningcenter">Centro de aprendizaje</a></li><li><a href="https://www.element14.com/community/community/manufacturers" data-icid="menubar_learn_manufacturers">Fabricantes</a></li><li><a href="https://www.element14.com/community/community/stem-academy" data-icid="menubar_learn_stemacademy">Academia CTIM</a></li><li><a href="https://www.element14.com/community/community/experts/benheck" data-icid="menubar_learn_benheck">The Ben Heck Show</a></li><li><a href="https://www.element14.com/community/community/events" data-icid="menubar_learn_webinars">Seminarios virtuales y formación</a></li><li style="font-weight:bold;"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_learn]" data-icid="menubar_learn_all">Más<span class="e14-arrow-right" style="display: inline-block; margin-left: 5px; margin-bottom: 1px;"></span></a></li></ul></div></section></li><li id="custom-nav-link-discuss" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/places?filterID=all~tag[nav_discuss]" data-icid="menubar_discuss_all" data-menu="#custom-nav-menu-discuss"><span class="nav-link">Debates <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-discuss" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/community/manufacturers/altium" data-icid="menubar_discuss_altium">CircuitStudio de Altium</a></li><li><a href="https://www.element14.com/community/community/arduino" data-icid="menubar_discuss_arduino">Arduino</a></li><li><a href="https://www.element14.com/community/community/eagle" data-icid="menubar_discuss_autodesk-eagle">EAGLE de AutoDesk</a></li><li><a href="https://www.element14.com/community/community/designcenter/single-board-computers/next-gen_beaglebone" data-icid="menubar_discuss_beagleboneblack">BeagleBone Black</a></li><li><a href="https://www.element14.com/community/groups/Embedded" data-icid="menubar_discuss_embedded">Kits de desarrollo </a></li><li><a href="https://www.element14.com/community/groups/fpga-group" title="FPGA" onclick="return e14HrefICID(this, &#39;menubar_topics_arduino&#39;);">FPGA</a></li><li><a href="https://www.element14.com/community/community/applications/industrial-automation-space" data-icid="menubar_discuss_industrial">Automatización industrial y robótica </a></li><li><a href="https://www.element14.com/community/groups/power-management" data-icid="menubar_discuss_power-energy">Alimentación y energía</a></li><li><a href="https://www.element14.com/community/community/raspberry-pi" data-icid="menubar_discuss_rpi">Raspberry Pi</a></li><li><a href="https://www.element14.com/community/community/designcenter/single-board-computers" data-icid="menubar_discuss_singleboardcomputers">Ordenadores de placa única</a></li><li><a href="https://www.element14.com/community/groups/test-and-measurement" data-icid="menubar_discuss_test-tools">Test y herramientas</a></li><li><a href="https://www.element14.com/community/community/designcenter/zedboardcommunity/zedboard-forums" data-icid="menubar_designcenter_zedboard">Zedboard Forums</a></li><li style="font-weight:bold;"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_discuss]" data-icid="menubar_learn_all">Más<span class="e14-arrow-right" style="display: inline-block; margin-left: 5px; margin-bottom: 1px;"></span></a></li></ul></div></section></li><li id="custom-nav-link-build" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/places?filterID=all~tag[nav_build]" data-icid="menubar_build" data-menu="#custom-nav-menu-build"><span class="nav-link">Construya <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-build" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/community/arduino/arduino-projects" data-icid="menubar_build_arduinoprojects">Arduino Proyectos</a></li><!-- li><a href="https://www.element14.com/community/community/members/contests-giveaways" data-icid="menubar_build_contests-giveaways">Concursos y obsequios </a></li --><li><a href="https://www.element14.com/community/community/design-challenges" data-icid="menubar_build_designchallenges">Concursos de diseño</a></li><li><a href="https://www.element14.com/community/community/designforacause" data-icid="menubar_build_designforacause">Diseño por una causa</a></li><li><a href="https://www.element14.com/community/community/element14-presents" data-icid="menubar_build_element14presents">element14 presenta</a></li><li><a href="https://www.element14.com/community/community/stem-academy/microbit" data-icid="menubar_build_element14presents">micro:bit Projects</a></li><li><a href="https://www.element14.com/community/community/project14" data-icid="menubar_build_project14">Project14 Competiciones</a></li><li><a href="https://www.element14.com/community/community/raspberry-pi/raspberrypi_projects" data-icid="menubar_build_raspiprojects">Proyectos de Raspberry Pi</a></li><li><a href="https://www.element14.com/community/groups/roadtest" data-icid="menubar_build_roadtest-reviews">RoadTests y reseñas</a></li><li><a href="https://www.element14.com/community/community/experts/benheck" data-icid="menubar_build_benheck">The Ben Heck Show</a></li><li style="font-weight:bold;"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_build]" data-icid="menubar_learn_all">Más<span class="e14-arrow-right" style="display: inline-block; margin-left: 5px; margin-bottom: 1px;"></span></a></li></ul></div></section></li><li id="custom-nav-link-designcenter" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/community/designcenter" data-icid="menubar_designcenter" data-menu="#custom-nav-menu-designcenter"><span class="nav-link">Encontrar producto   <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-designcenter" class="menu one-col j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://www.element14.com/community/designcenter" data-icid="menubar_designcenter_product-search"><strong>Búsqueda de productos </strong></a></li><li><a href="https://www.element14.com/community/docs/DOC-77184" data-icid="menubar_designcenter_design-manufacturing">Diseño y fabricación </a></li><li><a href="https://www.element14.com/community/designcenter" data-icid="menubar_designcenter_devkits-tools">Kits de desarrollo y herramientas</a></li><li><a href="https://www.element14.com/community/docs/DOC-74659" data-icid="menubar_designcenter_PCB-Design">Diseño PCB </a></li><li><a href="https://www.element14.com/community/community/designcenter/software" data-icid="menubar_designcenter_software">Software</a></li><li><a href="https://www.element14.com/community/community/designcenter/zedboardcommunity" data-icid="menubar_designcenter_zedboard">Zedboard Community</a></li></ul></div></section></li><li id="custom-nav-link-store" class="j-globalNav-li j-ui-elem" aria-haspopup="true"><a class="j-globalNavLink j-ui-elem" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" onclick="return false;" data-menu="#custom-nav-menu-store"><span class="nav-link">Tienda <span class="jive-icon-glyph icon-arrow-down2"></span></span></a><section id="custom-nav-menu-store" class="menu j-pop"><div class="col j-nav-menu j-menu j-pop-main"><ul><li><a href="https://mexico.newark.com/?COM=element14_store_RaspberryPi" target="_blank" rel="noopener" id="custom-nav-link-store-url"><span class="nav-link-label" title="¿Está buscando entregas rápidas en más de 500.000 productos? Visite nuestra tienda Newark element14. " style="margin-left: -2px; font-weight:bold;">Visite la tienda para <span class="flag-icon mx">México</span></span><span class="custom-icon newark" title="¿Está buscando entregas rápidas en más de 500.000 productos? Visite nuestra tienda Newark element14. "></span></a></li><li id="e14-countries-dropdown"><span style="display: inline-block; padding: 0 0 10px 15px;"> <a href="http://grh.premierfarnell.com/?COM=RaspberryPi" target="_blank" rel="noopener">Elija otra tienda diferente</a></span><span class="custom-icon e14" style="margin-left: 20px; margin-bottom: 10px;  display:inline-block; margin-top: -3px;" title=" ¿Está buscando entregas rápidas en más de 500.000 productos? Visite nuestra tienda Newark element14. "></span><div class="e14-countries-dropdown-content"><div style="padding: 10px 10px 0 10px;"><ul><li style="padding-bottom: 10px;"><strong>Europe</strong></li>	<li><a href="http://at.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon at"></span>&nbsp;Austria<span class="e14-lang">(Alemán)</span></a></li>	<li><a href="http://be.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon be"></span>&nbsp;Bélgica<span class="e14-lang">(Holandés, Francés)</span></a></li>	<li><a href="http://bg.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon bg"></span>&nbsp;Bulgaria<span class="e14-lang">(Búlgaro)</span></a></li>	<li><a href="http://cz.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon cz"></span>&nbsp;República Checa<span class="e14-lang">(Checo)</span></a></li>	<li><a href="http://dk.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon dk"></span>&nbsp;Dinamarca<span class="e14-lang">(Danés)</span></a></li>	<li><a href="http://ee.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon ee"></span>&nbsp;Estonia<span class="e14-lang">(Estonio)</span></a></li>	<li><a href="http://fi.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon fi"></span>&nbsp;Finlandia<span class="e14-lang">(Finés)</span></a></li>	<li><a href="http://fr.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon fr"></span>&nbsp;Francia<span class="e14-lang">(Francés)</span></a></li>	<li><a href="http://de.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon de"></span>&nbsp;Alemania<span class="e14-lang">(Alemán)</span></a></li>	<li><a href="http://hu.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon hu"></span>&nbsp;Hungría<span class="e14-lang">(Húngaro)</span></a></li>	<li><a href="http://ie.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon ie"></span>&nbsp;Irlanda</a></li>	<li><a href="http://il.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon il"></span>&nbsp;Israel</a></li>	<li><a href="http://it.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon it"></span>&nbsp;Italia<span class="e14-lang">(Italiano)</span></a></li>	<li><a href="http://lv.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon lv"></span>&nbsp;Letonia<span class="e14-lang">(Letón)</span></a></li></ul></div><div style="padding-left: 10px; vertical-align: top; margin-top: 10px; width: 210px;"><ul><li>&nbsp;</li>	<li><a href="http://lt.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon lt"></span>&nbsp;Lituania<span class="e14-lang">(Lituano)</span></a></li>	<li><a href="http://nl.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon nl"></span>&nbsp;Países Bajos<span class="e14-lang">(Holandés)</span></a></li>	<li><a href="http://no.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon no"></span>&nbsp;Noruega<span class="e14-lang">(Noruego)</span></a></li>	<li><a href="http://pl.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon pl"></span>&nbsp;Polonia<span class="e14-lang">(Polaco)</span></a></li>	<li><a href="http://pt.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon pt"></span>&nbsp;Portugal<span class="e14-lang">(Portugués)</span></a></li>	<li><a href="http://ro.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon ro"></span>&nbsp;Rumania<span class="e14-lang">(Rumano)</span></a></li>	<li><a href="http://ru.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon ru"></span>&nbsp;Rusia<span class="e14-lang">(Ruso)</span></a></li>	<li><a href="http://sk.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon sk"></span>&nbsp;Eslovaquia<span class="e14-lang">(Eslovaco)</span></a></li>	<li><a href="http://si.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon si"></span>&nbsp;Eslovenia<span class="e14-lang">(Esloveno)</span></a></li>	<li><a href="http://es.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon es"></span>&nbsp;España<span class="e14-lang">(Español)</span></a></li>	<li><a href="http://se.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon se"></span>&nbsp;Suecia<span class="e14-lang">(Sueco)</span></a></li>	<li><a href="http://ch.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon ch"></span>&nbsp;Suiza<span class="e14-lang">(Alemán, Francés)</span></a></li>	<li><a href="http://tr.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon tr"></span>&nbsp;Turquía<span class="e14-lang">(Turco)</span></a></li>	<li><a href="http://uk.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon uk"></span>&nbsp;Reino Unido</a></li></ul></div><div style="margin: 10px 25px 0 7px; padding-left:5px; vertical-align: top;"><ul><li style="padding-bottom: 10px;padding-right: 50px;"><strong>Asia Pacific</strong></li>	<li><a href="http://au.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon au"></span>&nbsp;Australia</a></li>	<li><a href="http://cn.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon cn"></span>&nbsp;China</a></li>	<li><a href="http://hk.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon hk"></span>&nbsp;Hong Kong</a></li>	<li><a href="http://in.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon in"></span>&nbsp;India</a></li>	<li><a href="http://kr.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon kr"></span>&nbsp;Corea<span class="e14-lang">(Coreano)</span></a></li>	<li><a href="http://my.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon my"></span>&nbsp;Malasia</a></li>	<li><a href="http://nz.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon nz"></span>&nbsp;Nueva Zelanda</a></li>	<li><a href="http://ph.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon ph"></span>&nbsp;Filipinas</a></li>	<li><a href="http://sg.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon sg"></span>&nbsp;Singapur</a></li>	<li><a href="http://tw.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon tw"></span>&nbsp;Taiwán</a></li>	<li><a href="http://th.element14.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon th"></span>&nbsp;Tailandia<span class="e14-lang">(Tailandés)</span></a></li></ul></div><div style="margin-top: 10px;margin-left: 7px; padding-left: 5px; vertical-align: top;"><ul><li style="padding-bottom: 10px;"><strong>Americas</strong></li>	<li><a href="http://www.newark.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon br"></span>&nbsp;Brasil<span class="e14-lang">(Portugués)</span></a></li>	<li><a href="http://canada.newark.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon ca"></span>&nbsp;Canadá</a></li>	<li><a href="http://mexico.newark.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon mx"></span>&nbsp;México<span class="e14-lang">(Español)</span></a></li>	<li><a href="http://www.newark.com/?COM=RaspberryPi" target="_blank" rel="noopener"><span class="flag-icon us"></span>&nbsp;Estados Unidos</a></li></ul></div><div class="e14-other-country"><span class="flag-icon export"></span>Can't find the country/region you're looking for? Visit our <a href="https://export.farnell.com/?COM=RaspberryPi" target="_blank" rel="noopener">export site</a> or find a <a href="http://grh.premierfarnell.com/?COM=RaspberryPi" target="_blank" rel="noopener">local distributor</a>.</div></div></li></ul></div></section></li><li id="custom-nav-link-activity" class="j-globalNav-li j-ui-elem j-actvity j-globalNav-li"><a href="https://www.element14.com/community/news" class="j-globalNavLink j-ui-elem"><span class="nav-link j-ui-elem">Actividad</span></a></li><li id="custom-nav-link-translate" class="j-globalNav-li j-ui-elem j-translate j-globalNav-li"><span id="loading" style="display:none"><img src="./PicoMKRAdapter_MKR_Shields_files/ajax-loader-small-circleball.gif"></span><a id="translateActivate" href="javascript:void(0)" onclick="e14InitGoogleTranslateLoader();" class="j-globalNavLink"><span class="nav-link j-ui-elem"><span class="custom-icon google-translate"></span> Translate</span></a></li></ul></nav></header><noscript><div style="color:red" align="center">Error: You don't have JavaScript enabled. This tool uses JavaScript and much of it will not work correctly without it enabled. Please turn JavaScript back on and reload this page.</div></noscript></div><div id="mobile-overlay"></div><div id="j-main-wrapper"><section id="j-main" class="clearfix"><div id="jive-body" class="clearfix">
+<div id="jive-breadcrumb"><span><a href="https://www.element14.com/community/places">Todos los lugares</a> &gt; <span class="e14-breadcrumb"><a href="https://www.element14.com/community/community/raspberry-pi"><span>Raspberry Pi</span></a></span> &gt; <span class="e14-breadcrumb"><a href="https://www.element14.com/community/community/raspberry-pi/blog"><span>Blog</span></a></span> &gt;                 <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021">2021</a> &gt;
+                <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01">enero</a> &gt;
+                <a class="jive-breadcrumb-last" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24" title="domingo">24</a>
+<span id="js-place-link-breadcrumb" data-place-link-count="0" data-linked-content-id="37075" data-linked-content-type="38" data-legacy="true" data-place="true" data-parents="true"></span></span></div>    
+
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main" class="j-layout j-layout-ls clearfix">
+
+
+    <!-- BEGIN main body column -->
+    <div class="j-column-wrap-l">
+        <div class="j-column j-column-l lg-margin">
+
+
+            <div id="object-follow-notify" class="jive-success-box" style="display:none" aria-live="polite" aria-atomic="true"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none" aria-live="polite" aria-atomic="true"></div>
+
+
+
+
+
+            <div class="jive-blog-info">
+                <h3><a href="https://www.element14.com/community/community/raspberry-pi/blog" class="font-color-normal"><span class="jive-icon-med jive-icon-blog"></span>Raspberry Pi</a></h3>
+                <span class="jive-blog-info-details font-color-meta-light">
+                    <strong></strong>
+                </span>
+                <span class="j-pagination">
+                    <span class="j-pagination-prevnext">
+                            <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/24/working-with-the-raspberry-pi-pico-with-windows" rel="prev" title="Publicación anterior" class="j-pagination-prev">Publicación anterior</a>
+                            <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/26/the-swear-bear" rel="next" title="Próxima publicación" class="j-pagination-next">Próxima publicación</a>
+                    </span>
+                </span>
+            </div>
+
+
+
+
+
+
+
+
+            <!-- BEGIN guided nav -->
+<div class="j-guided-nav js-guided-nav j-rc4" style="display: none;"><div class="j-header js-header j-rc4 j-rc-none-bottom"></div><div class="j-navbar js-navbar"></div></div>            <!-- END guided nav -->
+
+             <div class="jive-content jive-content-blog js-tlo js-ed-38-37075" role="article" aria-labelledby="heading-37075" data-object-type="38" data-object-id="37075">
+
+
+
+                 <header class="jive-blog-post-subject-header">
+                    <div>
+
+
+<a href="https://www.element14.com/community/people/bernhardmayer" data-externalid="" data-username="bernhardmayer" data-avatarid="23544" class="j-avatar jiveTT-hover-user " data-userid="553373" data-presence="null">
+    <img class="jive-avatar" src="./PicoMKRAdapter_MKR_Shields_files/46.png" data-avatarid="23544" data-username="bernhardmayer" border="0" height="46" data-height="46" width="46" alt="bernhardmayer">
+    </a>
+                        <h1 id="heading-37075"><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico" class="font-color-normal">PicoMKRAdapter - connect Arduino MKR Shields to Raspberry Pi Pico</a></h1>
+                        <span class="jive-blog-post-subject-stats font-color-meta">
+                            Publicado por <a href="https://www.element14.com/community/people/bernhardmayer" data-externalid="" data-username="bernhardmayer" data-avatarid="23544" id="jive-55337332613878342841284" data-userid="553373" data-presence="null" class="jiveTT-hover-user jive-username-link">bernhardmayer</a> en <a href="https://www.element14.com/community/community/raspberry-pi/blog">Raspberry Pi</a> el 24-ene-2021 20:38:00
+                        </span>
+                    </div>
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-38-37075 j-outcome-tlo-badge-container" data-object-type="38" data-object-id="37075" aria-label="Placas de resultados" aria-live="polite"></ul>                </header>
+                
+                <section class="jive-content-body" role="main">
+                    <!--[if IE]><div class="ie"><![endif]-->
+                    <div class="jive-blog-post-message"><!-- [DocumentBodyStart:ca8a9171-3200-427a-aed8-19afa857636d] --><div class="jive-rendered-content"><p>I was very excited when I heard about the new Raspberry Pi Pico (<a class="jive-link-wiki-small" data-containerid="2475" data-containertype="14" data-objectid="96021" data-objecttype="102" href="https://www.element14.com/community/docs/DOC-96021/l/raspberry-pi-pico">Raspberry Pi Pico</a> )</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2>Overview</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>I thought about all the projects I am going to built with it. But I needed to find a good starting point.</p><p>There are already a lot of Arduino Shields lying on my desk, some of them official, some of them designed by me and my friends. So I decided to get them running with the Raspberry Pi Pico and see how it is performing. To simplify the test setups I decided to design an adapter and this is it:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-37075-982129/PicoMKRAdapter_rendering_pico_side.png"><img alt="PicoMKRAdapter Pico side by 2021-01-25" height="561" class="image-1 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-37075-982129/PicoMKRAdapter_rendering_pico_side.png" style="width: 620px; height: 388px;" width="896" src="./PicoMKRAdapter_MKR_Shields_files/PicoMKRAdapter_rendering_pico_side.png"></a><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-37075-982277/PicoMKRAdapter_rendering_arduino_side.png"><img alt="PicoMKRAdapter Arduino side by 2021-01-25" height="561" class="image-2 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-37075-982277/PicoMKRAdapter_rendering_arduino_side.png" style="width: 620px; height: 388px;" width="896" src="./PicoMKRAdapter_MKR_Shields_files/PicoMKRAdapter_rendering_arduino_side.png"></a></p><p>The Raspberry Pi Pico plugs into the one side and the Arduino MKR Shield plugs into the other side. Additionally it has two Qwiic connectors for I2C0 and I2C1 and a third connector for serial.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2>pin usage</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The following table shows how the Arduino MKR is connected to the Pico. I tried to connect the pins of SPI, I2C and UART to hardware ports.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><table border="1" class="jiveBorder mce-item-table tablesorter tablesorter-default" jive-data-cell="{&quot;color&quot;:&quot;#3D3D3D&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;NaN&quot;,&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;fontFamily&quot;:&quot;Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" jive-data-header="{&quot;color&quot;:&quot;#505050&quot;,&quot;backgroundColor&quot;:&quot;#F2F2F2&quot;,&quot;textAlign&quot;:&quot;left&quot;,&quot;padding&quot;:&quot;6&quot;,&quot;fontFamily&quot;:&quot;Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif&quot;,&quot;verticalAlign&quot;:&quot;baseline&quot;}" style="border: 1px solid #c6c6c6; width: 100%;" role="grid"><thead><tr role="row" class="tablesorter-headerRow"><th colspan="2" style="border: 1px solid rgb(198, 198, 198); padding: 6px; color: rgb(80, 80, 80); background-color: rgb(242, 242, 242); text-align: center; user-select: none;" valign="middle" data-column="0" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Arduino MKR: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner"><strong>Arduino MKR</strong></div></th><th colspan="2" style="border: 1px solid rgb(198, 198, 198); padding: 6px; color: rgb(80, 80, 80); background-color: rgb(242, 242, 242); text-align: center; user-select: none;" valign="middle" data-column="2" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" aria-sort="none" aria-label="Raspberry Pi Pico: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner"><strong>Raspberry Pi Pico</strong></div></th></tr></thead><tbody aria-live="polite" aria-relevant="all"><tr role="row"><th style="border:1px solid black;border: 1px solid #c6c6c6;vertical-align: baseline;font-family: Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;padding: 6px;text-align: center;background-color: rgb(242, 242, 242);color: rgb(80, 80, 80);"><strong>Pin</strong></th><th style="border:1px solid black;border: 1px solid #c6c6c6;vertical-align: baseline;font-family: Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;padding: 6px;text-align: center;background-color: rgb(242, 242, 242);color: rgb(80, 80, 80);"><strong>Pin Name</strong></th><td style="border:1px solid black;border: 1px solid #c6c6c6;padding: 6px;color: rgb(80, 80, 80);background-color: rgb(242, 242, 242);text-align: center;"><strong>Pin Name</strong></td><td style="border:1px solid black;border: 1px solid #c6c6c6;padding: 6px;color: rgb(80, 80, 80);background-color: rgb(242, 242, 242);text-align: center;"><strong>Pin</strong></td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">1</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">AREF</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">ADC_VREF</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">35</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">2</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">DAC0/A0</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP26/ADC0</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">31</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">3</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">A1</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP27/ADC1</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">32</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">4</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">A2</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP28/ADC2</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">34</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">5</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">A3</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP15</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">20</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">6</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">A4</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP22</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">29</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">7</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">A5</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP21</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">27</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">8</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">A6</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP20</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">26</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">9</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">0</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP0</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">1</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">10</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">1</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP1</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">2</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">11</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">2</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP2</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">4</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">12</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">3</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP3</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">5</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">13</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">4</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP10</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">14</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">14</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">5</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP5</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">7</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">15</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">6</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP14</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">19</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">16</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">7</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP11</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">15</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">17</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">8/MOSI</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP7</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">10</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">18</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">9/SCK</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP6</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">9</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">19</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">10/MISO</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP4</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">6</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">20</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">11/SDA</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP12/I2C0_SDA</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">16</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">21</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">12/SCL</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP13/I2C0_SCL</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">17</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">22</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">13/RX</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP9/UART1_RX</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">12</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">23</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">14/TX</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GP8/UART1_TX</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">11</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">24</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">RESET</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">RUN</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">30</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">25</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GND</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">GND</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">3..38</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">26</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">VCC</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">3V3</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">36</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">27</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">VIN</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">VBUS</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">40</td></tr><tr role="row"><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">28</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">5V0</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">VSYS</td><td align="center" style="border:1px solid black;border: 1px solid #c6c6c6;">39</td></tr></tbody></table><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2>project data and documentation</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The whole project and documentation is available on github: <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=https%3A%2F%2Fgithub.com%2Fgenerationmake%2FPicoMKRAdapter%2F" rel="nofollow ugc noopener" target="_blank" title="https://github.com/generationmake/PicoMKRAdapter/">https://github.com/generationmake/PicoMKRAdapter/</a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>I also uploaded the project to Aisler. PCB and parts may be sourced there: <a class="jive-link-external-small" href="https://www.element14.com/community/external-link.jspa?url=https%3A%2F%2Faisler.net%2Fp%2FNLXLWAGV" rel="nofollow ugc noopener" target="_blank" title="https://aisler.net/p/NLXLWAGV">https://aisler.net/p/NLXLWAGV</a> </p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2>Prototypes</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>By now the prototypes have arrived. The pcbs look like this:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-37075-991206/IMG_2827.JPG"><img alt="PicoMKRAdapter pcbs" height="900" class="image-3 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-37075-991206/IMG_2827.JPG" style="width: 620px; height: 413px;" width="1350" src="./PicoMKRAdapter_MKR_Shields_files/IMG_2827.JPG"></a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Assembled and with a Raspberry Pi Pico on top it looks like this:</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p><a href="https://www.element14.com/community/servlet/JiveServlet/showImage/38-37075-991207/IMG_2828.JPG"><img alt="PicoMKRAdapter with Raspberry Pi Pico" height="900" class="image-4 jive-image lazyload" loading="lazy" data-src="https://www.element14.com/community/servlet/JiveServlet/downloadImage/38-37075-991207/IMG_2828.JPG" style="width: 620px; height: 413px;" width="1350" src="./PicoMKRAdapter_MKR_Shields_files/IMG_2828.JPG"></a></p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><h2>Questions?</h2><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>What do you think about this adapter? Do you have any suggestions to make it better?</p></div><!-- [DocumentBodyEnd:ca8a9171-3200-427a-aed8-19afa857636d] --></div>
+                    <!--[if IE]></div><![endif]-->
+
+                    <!-- BEGIN attachments -->
+                    <!-- END attachments -->
+                </section>
+
+<div class="j-content j-rc4 ">
+                 <footer class="font-color-meta">
+                     <ul class="clearfix">
+
+                         <li class="j-footer-left font-color-meta">
+     
+        <span class="jive-content-footer-item">
+            292&nbsp;Vistas
+        </span>
+
+                         </li>
+
+                        <!-- Start TagSets/Categories -->
+
+
+                         <li class="j-footer-left font-color-meta">
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+            <span class="jive-icon-sml jive-icon-tag"></span>Etiquetas: <span id="jive-edit-inline-add-none" style="display:none;">Ninguno</span> <span style="display:none;" id="jive-edit-inline-placeholder"> (<a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" class="jive-edit-inline-tags-link">agregar</a>)</span>
+
+            <span class="jive-thread-post-details-tags" id="jive-thread-post-details-tags_Zt3OPC">
+                <a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=adapter" title="Contenido etiquetado con adapter" aria-label="Contenido etiquetado con adapter"><span role="presentation" aria-hidden="true">adapter</span></a>,
+                <a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=arduino_mkr" title="Contenido etiquetado con arduino_mkr" aria-label="Contenido etiquetado con arduino_mkr"><span role="presentation" aria-hidden="true">arduino_mkr</span></a>,
+                <a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=raspberry_pi_pico" title="Contenido etiquetado con raspberry_pi_pico" aria-label="Contenido etiquetado con raspberry_pi_pico"><span role="presentation" aria-hidden="true">raspberry_pi_pico</span></a>,
+                <a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=pi_pico" title="Contenido etiquetado con pi_pico" aria-label="Contenido etiquetado con pi_pico"><span role="presentation" aria-hidden="true">pi_pico</span></a>
+            </span>
+    </span>
+    <!-- END view/add/edit tags -->
+                         </li>
+
+
+                     </ul>
+                 </footer>
+             </div>
+                </div>
+
+        <div class="jive-content-rating j-rc5 clearfix" data-guid="8OX4C1OAFSJ4T76XJ4A6E7PPRF9O7E">
+
+<script type="text/javascript">
+    $j(document).ready(function() {
+
+        var i18n = {
+            avgUserRatingTitlei18n : "Calificación promedio del usuario",
+            avgUserRatingLabeli18n : "Clasificación del usuario promedio",
+            rateRatingLabel : "clasificación",
+            myRatingLabel : "Su calificación:",
+            rateRatingsLabel : "Clasificaciones",
+            ratingSavingText : "Guardando...",
+            rateSavedText : "Guardado.",
+            rateRatingSaved : "¡Se guardó la clasificación!",
+            writeAReview : "Escriba una revisión",
+            commentOnRating : "Comentario sobre su clasificación",
+            formSubmitPleaseWait:'Espere...'
+        };
+        var rteOptions = {
+            preset        : "mini-w-quote",
+            preferredMode : "advanced",
+            startMode     : "advanced",
+            mobileUI      : false,
+            communityName : 'element14 Community',
+            height        : 200
+        };
+
+
+        new jive.Rate(14, 2475, 38, 37075, 'blog', i18n, true, '8OX4C1OAFSJ4T76XJ4A6E7PPRF9O7E', rteOptions);
+    });
+
+</script>
+
+        <div class="jive-content-avgrating" tabindex="0" aria-labelledby="j-rating-score"><span class="j-508-label" id="j-rating-score">Calificación promedio del usuario: Sin clasificaciones (0 Clasificaciones)</span><div class="jive-content-avgrating-title">Calificación promedio del usuario</div><div class="jive-content-avgrating-score" title="Calificación promedio del usuario: 0 de 5"><span class="j-508-label">Sin clasificaciones</span><span class="jive-icon-avgrating-1 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-2 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-3 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-4 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-5 jive-icon-med jive-icon-rate-avg-off"></span></div><div class="jive-content-rating-print" style="display: none;">0</div><div class="jive-content-avgrating-count">(0 Clasificaciones)</div></div></div>
+
+<ul id="js-outcome-summary-container-38-37075" class="js-outcome-summary-container j-outcome-summary-container js-ed-38-37075" data-object-type="38" data-object-id="37075" aria-label="Resumen de resultados" role="group"></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="jive-rolled-up-comments" class="j-so-finalized-rollup j-rc4" style="display:none">
+        Este contenido ha sido marcado como final.&nbsp;
+        <a id="jive-unroll-comments" class="j-so-finalized-unroll j-comment-count" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#">
+Mostrar                     2 comentarios
+        </a>
+    </div>
+
+    <div id="jive-comment-tabs" class="j-comment-wrapper" xmlns="http://www.w3.org/1999/html">
+
+        <!-- BEGIN tabs -->
+        <header>
+            <h3>Comentarios</h3>
+        </header>
+
+        <ul class="j-comment-options">
+                <li id="jive-comments-tab" class="jive-body-tab j-tab-selected">
+                    <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#">
+                            <span id="jive-comments-count" class="j-comment-count">2</span> Comentarios
+                    </a>
+                </li>
+
+        </ul>
+        <!-- END tabs -->
+
+            <div id="jive-comments"><a name="comments" id="comments"></a>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+    if ('comments' == 'comments') {
+       $j('#jive-comments-count').text('2');
+       $j('#jive-comments').prepend('<a name="comments" id="comments"></a>')
+    }
+
+	e14CommentsLoadedHook(); 
+	
+</script>
+
+
+<a name="comments"></a>
+<!-- Display comment bar depending on comment type -->
+<!-- Author comments tab (Doc specific) -->
+        <!-- Regular Comments tab, non-document content types use this -->
+        <div class="j-comment-action-bar j-rc4 clearfix">
+		
+				<p class="jive-icon-med jive-icon-comment"><strong><a href="https://www.element14.com/community/login.jspa" onclick="$j(&#39;#navLogin&#39;).trigger(&#39;click&#39;); return false;">Login</a> or <a href="https://www.element14.com/community/create-account.jspa">Register</a> to comment</strong></p>
+		
+        </div>
+    <!-- End comment bar -->
+
+    <!-- moderation feedback message -->
+    <div id="success-moderation-edit" class="jive-content-moderation-box" style="display:none"></div>
+
+    <!-- Wire up the treewalker and comments to iterate over -->
+            <!-- Begin regular comments and backchannel comments list -->
+            <div class="jive-comment-container clearfix j-rc4">
+<!-- parentId == -1 when the comment does not have a parent -->
+<!-- Begin Comment 274805-->
+
+
+
+    <ul class="jive-comment jive-comment-threaded jive-comment-indent-0">
+    <li class="reply j-anchor-target" id="comment-274805" data-object-type="105" data-object-id="274805">
+
+
+
+<a href="https://www.element14.com/community/people/wolfgangfriedrich" data-externalid="" data-username="wolfgangfriedrich" data-avatarid="21959" class="j-avatar jiveTT-hover-user " data-userid="371434" data-presence="null">
+    <img class="jive-avatar" src="./PicoMKRAdapter_MKR_Shields_files/32.png" data-avatarid="21959" data-username="wolfgangfriedrich" border="0" height="32" data-height="32" width="32" alt="wolfgangfriedrich">
+    <span class="j-status-levels j-gamification-status-level"><img src="./PicoMKRAdapter_MKR_Shields_files/level_7_icon.gif" alt="Level 7: Edison" title="Level 7: Edison"></span></a>
+                <div class="jive-comment-arrow"></div>
+            <div class="jive-comment-content clearfix">
+            <div class="j-comment-header">
+
+                <p class="jive-comment-meta font-color-meta-light">
+
+                    <span class="j-username-wrap">
+                    <a href="https://www.element14.com/community/people/wolfgangfriedrich" data-externalid="" data-username="wolfgangfriedrich" data-avatarid="21959" id="jive-37143432613881687729877" data-userid="371434" data-presence="null" class="jiveTT-hover-user jive-username-link">wolfgangfriedrich</a>
+                    </span>
+                    <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#comment-274805" id="comment-modDate-274805" class="font-color-meta-light">12-feb-2021 6:42</a>
+                </p>
+
+            </div>
+            <div id="comment-body-274805">
+
+                        <!-- [DocumentBodyStart:72643aee-cf4d-46be-92cf-5075278c5b36] --><div class="jive-rendered-content"><p>Love the idea. I am a big fan of adapters like this. Did some shields that work on Uno and Feathers.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>An improvement might be to add resistor option to cross RX/TX and make the power rails directional with Schottky diodes and then be able to plug in a Pico and a MKR controller and have a multiprocessor system. </p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>I did not check, but do have RESET and RUN correct directions/polarities to not block the other part?</p><p>Oh, and silkscreen on the pins to label their function would be nice. Are the square pads GND? Nice detail.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Good work,</p><p>- Wolfgang.</p></div><!-- [DocumentBodyEnd:72643aee-cf4d-46be-92cf-5075278c5b36] -->
+            </div>
+<span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container font-color-okay" data-object-type="105" data-object-id="274805" data-helpful-count="0" data-overall-count="0" data-display-overall="true"></span>
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-105-274805" data-object-type="105" data-object-id="274805" data-parent-object-type="38" data-parent-object-id="37075" aria-label="Placas de resultados" aria-live="polite"></ul>
+            <ul class="j-comment-footer js-comment-footer clearfix">
+                <li class="jive-comment-actions font-color-meta clearfix" data-comment-id="274805">
+
+
+
+<span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up jive-glyph-like"></span><span id="acclaim-container-105-274805" class="acclaim-container"><span id="jive-acclaim-like-container-105-274805" data-acclaim-count="1" data-can-apply="false" data-type="small" data-show-icon="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Me gusta <a class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="274805" data-object-type="105" data-count="1" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" role="link" aria-label="Mostrar 1 Me gusta" title="Mostrar 1 Me gusta">(1)</a> </span></span></span></span>
+
+                </li>
+                <li class="jive-comment-action-button font-color-meta-light clearfix">
+<a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="105" data-object-id="274805" data-dom-actions="[]" data-parent-id="-1" data-root-community="element14 Community">Acciones <span class="j-ui-elem j-action-down-arrow"></span></a>                </li>
+            </ul>
+        </div>
+
+<!-- parentId == -1 when the comment does not have a parent -->
+<!-- Begin Comment 274835-->
+
+
+
+    <ul class="jive-comment jive-comment-threaded jive-comment-indent-1">
+    <li class="reply j-anchor-target" id="comment-274835" data-object-type="105" data-object-id="274835">
+
+
+
+<a href="https://www.element14.com/community/people/bernhardmayer" data-externalid="" data-username="bernhardmayer" data-avatarid="23544" class="j-avatar jiveTT-hover-user " data-userid="553373" data-presence="null">
+    <img class="jive-avatar" src="./PicoMKRAdapter_MKR_Shields_files/32(1).png" data-avatarid="23544" data-username="bernhardmayer" border="0" height="32" data-height="32" width="32" alt="bernhardmayer">
+    <span class="j-status-levels j-gamification-status-level"><img src="./PicoMKRAdapter_MKR_Shields_files/level_6_icon.gif" alt="Level 6: Lovelace" title="Level 6: Lovelace"></span><span class="j-status-levels j-gamification-status-level"><img src="./PicoMKRAdapter_MKR_Shields_files/level_6_icon.gif" alt="Level 6: Lovelace" title="Level 6: Lovelace"></span></a>
+                <div class="jive-comment-arrow"></div>
+            <div class="jive-comment-content clearfix">
+            <div class="j-comment-header">
+
+                <p class="jive-comment-meta font-color-meta-light">
+
+                    <span class="j-username-wrap">
+                    <a href="https://www.element14.com/community/people/bernhardmayer" data-externalid="" data-username="bernhardmayer" data-avatarid="23544" id="jive-55337332613881711366120" data-userid="553373" data-presence="null" class="jiveTT-hover-user jive-username-link">bernhardmayer</a>
+                    </span>
+                    <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#comment-274835" id="comment-modDate-274835" class="font-color-meta-light">12-feb-2021 7:24</a>
+                        (<a class="font-color-meta-light localScroll" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#comment-274805" title="Ir al mensaje">en respuesta a wolfgangfriedrich</a>)
+                </p>
+
+            </div>
+            <div id="comment-body-274835">
+
+                        <!-- [DocumentBodyStart:a0bb9807-dd48-452a-90c5-1b3887cd77a4] --><div class="jive-rendered-content"><p>Hallo Wolfgang,</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>thank you. Yes, the square pads are GND. I saw this on the Raspberry Pi Pico and really liked it.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>The reset lines seems to work also. I have some shields with a reset button on them. And pushing this button resets the Pico.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>At the moment it is only to connect Arduino Shields to the Raspberry Pi Pico.</p><p>I am always afraid of connecting to processor boards together as they might drive against each other and the magic smoke might come out.</p><p style="min-height: 8pt; padding: 0px;">&nbsp;</p><p>Bernhard</p></div><!-- [DocumentBodyEnd:a0bb9807-dd48-452a-90c5-1b3887cd77a4] -->
+            </div>
+<span class="js-outcome-helpful-counts-container j-outcome-helpful-counts-container font-color-okay" data-object-type="105" data-object-id="274835" data-helpful-count="0" data-overall-count="0" data-display-overall="true"></span>
+<ul class="js-outcome-badge-container j-outcome-badge-container js-ed-105-274835" data-object-type="105" data-object-id="274835" data-parent-object-type="38" data-parent-object-id="37075" aria-label="Placas de resultados" aria-live="polite"></ul>
+            <ul class="j-comment-footer js-comment-footer clearfix">
+                <li class="jive-comment-actions font-color-meta clearfix" data-comment-id="274835">
+
+
+
+<span class="js-liking-control j-liking-control"><span class="jive-icon-glyph icon-thumbs-up jive-glyph-like"></span><span id="acclaim-container-105-274835" class="acclaim-container"><span id="jive-acclaim-like-container-105-274835" data-acclaim-count="1" data-can-apply="false" data-type="small" data-show-icon="true" class="js-acclaim-container acclaim-like-container"><span class="j-social-action">Me gusta <a class="jive-acclaim-likedlink" data-command="showAcclaim" data-acclaim-type="like" data-object-id="274835" data-object-type="105" data-count="1" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" role="link" aria-label="Mostrar 1 Me gusta" title="Mostrar 1 Me gusta">(1)</a> </span></span></span></span>
+
+                </li>
+                <li class="jive-comment-action-button font-color-meta-light clearfix">
+<a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" class="font-color-meta js-outcome-button j-outcome-button" data-object-type="105" data-object-id="274835" data-dom-actions="[]" data-parent-id="274805" data-root-community="element14 Community">Acciones <span class="j-ui-elem j-action-down-arrow"></span></a>                </li>
+            </ul>
+        </div>
+
+        <!-- End Comment -->
+
+    </li>
+    </ul>
+    
+        <!-- End Comment -->
+
+    </li>
+    </ul>
+    
+                <div class="j-addComment-bottom clearfix">
+                </div>
+
+            </div>
+
+        <script type="text/javascript">
+            $j(function(){
+                jive.localexchange.emit("renderedContent");
+            });
+        </script>
+
+
+</div>
+
+        <div style="display:none;" id="jive-comment-post-block">
+
+            <!-- moderation warning -->
+            <!-- end moderation warning -->
+
+            <form method="post" action="javascript:void(0);" name="jive-comment-post-form" class="j-comment-form">
+                <div class="jive-error-box" id="jive-comment-error-box" style="display:none">
+                    <p class="jive-error-message" id="jive-comment-error" style="display:none"></p>
+                </div>
+                    <div class="jive-comment-post-anonymous" id="jive-comment-post-anonymous">
+                        <div>
+                            <input id="comment-author" name="commentGuestName">
+                            <label for="comment-author">Nombre <span class="font-color-meta-light">(Requerido)</span></label>
+                        </div>
+                        <div>
+                            <input id="comment-email" name="commentGuestEmail">
+                            <label for="comment-email">Dirección de correo electrónico <span class="font-color-meta-light">(Requerido, no será publicado)</span></label>
+                        </div>
+                        <div>
+                            <input id="comment-url" name="commentGuestUrl">
+                            <label for="comment-url">Dirección del sitio Web</label>
+                        </div>
+                    </div>
+
+                <input type="hidden" class="js-outcome-attachment" value="">
+                <div>
+                    <textarea name="commentBody" id="wysiwygtext" rows="10" class="jive-comment-textarea" aria-label="Escribir"></textarea>
+                </div>
+
+                <div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div>
+
+<div class="j-rte-message js-rte-message"></div>                <div class="jive-form-buttons">
+                    <input type="submit" name="post" class="j-btn-callout" value="Agregar comentario">
+                    <input type="button" name="cancel" value="Cancelar">
+                </div>
+
+            </form>
+        </div>
+
+        <div style="display:none;" id="jive-comment-edit-block">
+            <form method="post" action="javascript:void(0);" name="jive-comment-edit-form" class="j-comment-form">
+                <div class="jive-error-box" id="jive-comment-error-box" style="display:none">
+                    <p class="jive-error-text" id="jive-comment-error" style="display:none"></p>
+                </div>
+                <div class="jive-comment-post-anonymous" id="jive-comment-edit-anonymous">
+                    <div>
+                        <input id="name" value="">
+                        <label for="name">Name
+                            <span>(Requerido)</span></label>
+                    </div>
+                    <div>
+                        <input id="email" value="">
+                        <label for="email">Email Address
+                            <span>(Requerido, no será publicado)</span></label>
+                    </div>
+                    <div>
+                        <input id="url" value="">
+                        <label for="url">Dirección del sitio Web</label>
+                    </div>
+                </div>
+                <div>
+                    <textarea name="commentBody" id="wysiwygtext" rows="10" class="jive-comment-textarea" aria-labelledby="jive-comment-edit-anonymous">&lt;%= commentBody %&gt;</textarea>
+                </div>
+
+                <div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div>
+
+<div class="j-rte-message js-rte-message"></div>                <div class="jive-form-buttons">
+                    <input type="submit" name="post" class="j-btn-callout" value="Guardar">
+                    <input type="button" name="cancel" value="Cancelar">
+                </div>
+
+            </form>
+        </div>
+    </div> <!-- / .jive-comment-wrapper -->
+
+
+
+<!-- draft deps -->
+
+
+
+
+
+        </div>
+    </div>
+    <!-- END large column -->
+
+
+
+ <!-- BEGIN small column -->
+<div class="j-column-wrap-s">
+ <div id="jive-body-sidebarcol-container" class="j-column j-column-s j-content-extras j-loaded">
+    
+
+    <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" id="mobile-sidenav-btn" title="Explorar" aria-label="Explorar"></a>
+
+    <div class="j-box j-social-actions">
+        <ul class="j-icon-list clearfix" role="toolbar" aria-label="Acciones sociales">
+				<li class="j-js-follow-controls">
+					<a id="jive-link-blogpost-startFollowing" href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" onclick="$j(&#39;#navLogin&#39;).trigger(&#39;click&#39;);return false;" class="j-social-action">
+						<span class="jive-icon-glyph icon-pulse"></span>
+Seguir					</a>
+				</li>
+
+                <li>
+                    <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" class="j-social-action" data-command="share" data-object-id="37075" data-object-type="38">
+                        <span>
+                            <span class="jive-icon-glyph icon-share2"></span>
+Compartir                        </span>
+                    <a class="pf-widget-map pf-ic-share-li-16 " style="float:right; margin-top:1px" onclick="$j(&#39;.j-social-action[data-command=share]&#39;).click();return false;"></a><span style="float:right; width:2px">&nbsp;</span><a class="pf-widget-map pf-ic-share-tw-16 " style="float:right; margin-top:1px" onclick="$j(&#39;.j-social-action[data-command=share]&#39;).click();return false;"></a><span style="float:right; width:2px">&nbsp;</span><a class="pf-widget-map pf-ic-share-fb-16 " style="float:right; margin-top:1px" onclick="$j(&#39;.j-social-action[data-command=share]&#39;).click();return false;"></a><span style="float:right; width:2px">&nbsp;</span></a>
+                </li>
+
+
+
+
+            <script>
+                $j(function() {
+                    /*
+                    * Oh how I wish I didn't have to do it this way.
+                    *
+                    * it's JS instead of CSS because the hovered element affects the parent.
+                    * it's delegate instead of simple event binding because the bookmark element gets replaced when the user takes action.
+                    *
+                     */
+                    $j('.j-social-actions').delegate('a.j-social-action', 'mouseover', function() {
+                        $j(this).closest('li').addClass('hover');
+                    }).delegate('a.j-social-action', 'mouseout', function() {
+                        $j(this).closest('li').removeClass('hover');
+                    }).delegate('a.j-social-action', 'mousedown', function() {
+                        $j(this).closest('li').addClass('active');
+                    }).delegate('a.j-social-action', 'mouseup', function() {
+                        $j(this).closest('li').removeClass('active');
+                    })
+
+
+                })
+            </script>
+
+        </ul>
+    </div>
+
+
+<div class="j-box j-box-actions" role="toolbar" aria-labelledby="jive-action-sidebar-tab-header_blog-actions-tab" style="display: none;">
+
+    <header>
+        <h4 id="jive-action-sidebar-tab-header_blog-actions-tab">Acciones</h4>
+    </header>
+    <div id="jive-action-sidebar_blog-actions-tab" class="j-box-body">
+
+        <div id="jive-action-sidebar-tab-_blog-actions-tab" class="jive-action-sidebar-tab-first">
+
+
+
+            <ul id="jive-action-sidebar-tab-list_blog-actions-tab" class=" j-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="anonymous-jive-link-abuse" style=""><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/01/25/picomkradapter-connect-arduino-mkr-shields-to-raspberry-pi-pico#" rel="nofollow" onclick="$j(&#39;#navLogin&#39;).trigger(&#39;click&#39;);return false;" target="" title="">
+<span class="jive-icon-glyph icon-notification2"></span>
+Informar al moderador
+</a></li>
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+
+    </div>
+    </div>
+
+
+<!-- /.j-box-actions -->
+
+
+
+    <div id="blog-nav-filters" class="j-box">
+    <header>
+        <h4>Filtrar Blog</h4>
+    </header>
+    <div class="j-box-body">
+                <label for="authorSelect"><strong>Por autor:</strong></label>
+                    <form id="authorFilter">
+                        <select name="author" id="authorSelect">
+                            <option value="">---</option>
+                            <option value="authors/_vishaladitya">Vishal Aditya</option>
+                            <option value="authors/8bitsandabyte">8bitsandabyte</option>
+                            <option value="authors/aaroNiGHTS">aaroNiGHTS</option>
+                            <option value="authors/airbornesurfer">airbornesurfer</option>
+                            <option value="authors/ajtag">ajtag</option>
+                            <option value="authors/anhtien">anhtien</option>
+                            <option value="authors/anujaapte">Anuja Apte</option>
+                            <option value="authors/anupash.1002">anupash.1002</option>
+                            <option value="authors/anupsarkar2007">anupsarkar2007</option>
+                            <option value="authors/at2oo1">at2oo1</option>
+                            <option value="authors/balearicdynamics">balearicdynamics</option>
+                            <option value="authors/bernhardmayer">bernhardmayer</option>
+                            <option value="authors/bhbud">bhbud</option>
+                            <option value="authors/biglesp">biglesp</option>
+                            <option value="authors/bitscope">bitscope</option>
+                            <option value="authors/bluescreen">bluescreen</option>
+                            <option value="authors/bobanr">bobanr</option>
+                            <option value="authors/bpanda_">bpanda_</option>
+                            <option value="authors/bprewit">bprewit</option>
+                            <option value="authors/brainboxesbuff">brainboxesbuff</option>
+                            <option value="authors/brianchilders">brianchilders</option>
+                            <option value="authors/Brother-in-Arms">Brother-in-Arms</option>
+                            <option value="authors/carriots">carriots</option>
+                            <option value="authors/cassioeskelsen">cassioeskelsen</option>
+                            <option value="authors/Catwell">Cabe Atwell</option>
+                            <option value="authors/CharlesGantt">CharlesGantt</option>
+                            <option value="authors/chezdomotix">chezdomotix</option>
+                            <option value="authors/chiversj">chiversj</option>
+                            <option value="authors/chowler">chowler</option>
+                            <option value="authors/chrisv12">chrisv12</option>
+                            <option value="authors/clem57">clem57</option>
+                            <option value="authors/cocomoo">cocomoo</option>
+                            <option value="authors/colonel_dirty">colonel_dirty</option>
+                            <option value="authors/colporteur">colporteur</option>
+                            <option value="authors/crisdeodates">crisdeodates</option>
+                            <option value="authors/cstanton">Christopher Stanton</option>
+                            <option value="authors/cybermah">cybermah</option>
+                            <option value="authors/cymon">cymon</option>
+                            <option value="authors/DAB">DAB</option>
+                            <option value="authors/danielmcgraw">danielmcgraw</option>
+                            <option value="authors/dannyr">dannyr</option>
+                            <option value="authors/DanyO83">DanyO83</option>
+                            <option value="authors/danzima">danzima</option>
+                            <option value="authors/DaveYoung">Dave Young</option>
+                            <option value="authors/deepakgupta">deepakgupta</option>
+                            <option value="authors/Digital.Larry">Digital.Larry</option>
+                            <option value="authors/dkelley810">dkelley810</option>
+                            <option value="authors/doctorcdf">doctorcdf</option>
+                            <option value="authors/donohoes%40aston.ac.uk">donohoes@aston.ac.uk</option>
+                            <option value="authors/dougw">dougw</option>
+                            <option value="authors/dubbie">dubbie</option>
+                            <option value="authors/e14phil">e14phil</option>
+                            <option value="authors/eakey1">eakey1</option>
+                            <option value="authors/Eavesdropper">Eavesdropper</option>
+                            <option value="authors/element14Dave">element14Dave</option>
+                            <option value="authors/emackenzie">emackenzie</option>
+                            <option value="authors/emotep">emotep</option>
+                            <option value="authors/eric_element14">eric_element14</option>
+                            <option value="authors/falgun">falgun</option>
+                            <option value="authors/fernando-mc">fernando-mc</option>
+                            <option value="authors/fmanno">fmanno</option>
+                            <option value="authors/fmilburn">fmilburn</option>
+                            <option value="authors/francesco.vannini">francesco.vannini</option>
+                            <option value="authors/franmiele">franmiele</option>
+                            <option value="authors/Fred27">Fred27</option>
+                            <option value="authors/fustini">Drew Fustini</option>
+                            <option value="authors/GadgetUK">GadgetUK</option>
+                            <option value="authors/gam3t3ch">gam3t3ch</option>
+                            <option value="authors/glennvanderveer">glennvanderveer</option>
+                            <option value="authors/global.view">global.view</option>
+                            <option value="authors/gonzosmoonwomb">Daniel O'Shea</option>
+                            <option value="authors/gpolder">gpolder</option>
+                            <option value="authors/gsimerlink">gsimerlink</option>
+                            <option value="authors/guycarver">guycarver</option>
+                            <option value="authors/howroyd">howroyd</option>
+                            <option value="authors/hwhardsoft">hwhardsoft</option>
+                            <option value="authors/ipv1">ipv1</option>
+                            <option value="authors/j2tmax">j2tmax</option>
+                            <option value="authors/jafoste4">jafoste4</option>
+                            <option value="authors/jamodio">jamodio</option>
+                            <option value="authors/jancumps">Jan Cumps</option>
+                            <option value="authors/jasonqsine">jasonqsine</option>
+                            <option value="authors/jbilecsu">jbilecsu</option>
+                            <option value="authors/jc2048">jc2048</option>
+                            <option value="authors/jealderson1">Joe Alderson</option>
+                            <option value="authors/jfleisher">jfleisher</option>
+                            <option value="authors/jhayden">jhayden</option>
+                            <option value="authors/jissdeodates">jissdeodates</option>
+                            <option value="authors/jkutzsch">jkutzsch</option>
+                            <option value="authors/jlucas">jlucas</option>
+                            <option value="authors/joeman">joeman</option>
+                            <option value="authors/johnbeetem">John Beetem</option>
+                            <option value="authors/jomoenginer">jomoenginer</option>
+                            <option value="authors/jpconway99">jpconway99</option>
+                            <option value="authors/justiciero24">justiciero24</option>
+                            <option value="authors/KJackson">KJackson</option>
+                            <option value="authors/kk99">kk99</option>
+                            <option value="authors/kkittylin">kkittylin</option>
+                            <option value="authors/koudelad">koudelad</option>
+                            <option value="authors/kunio_bart">kunio_bart</option>
+                        </select>
+                    </form>
+                    <script type="text/javascript">
+                        /* once loaded, set the select to the currently filtered author */
+                        $j(document).ready(function() {
+                            var currentUrl = window.location.href;
+                            var authorValue = currentUrl.split("blog/");
+                            var value = authorValue[1];
+
+                            $j('#authorSelect').val(value).prop('selected', true)
+                            .change(function() {
+                                /* when changing the select option, load the URL to filter by the author  */
+                                var authorVal = $j(this).val();
+                                var url = 'https://www.element14.com/community/community/raspberry-pi/blog/';
+                                window.location = url + authorVal;
+                            });
+                        });
+                    </script>
+
+            <strong>Por fecha:</strong>
+            
+
+            
+
+
+                <ul class="j-simple-list">
+                    <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2017/11">noviembre 2017 </a></li>
+                    
+                </ul>
+        
+
+
+
+    <strong>Por etiqueta:</strong>
+    <ul class="jive-tagcloud-list jive-sidebar-populartags">
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=cabeatwell" title="Usada 24 veces">cabeatwell</a></li>
+            <li class="jive-tagset-popularity7"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=complete" title="Usada 208 veces">complete</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=custard" title="Usada 11 veces">custard</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=matlab" title="Usada 10 veces">matlab</a></li>
+            <li class="jive-tagset-popularity2"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=pi" title="Usada 78 veces">pi</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=raspberry%20pi" title="Usada 21 veces">raspberry pi</a></li>
+            <li class="jive-tagset-popularity1"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=raspberry-pi" title="Usada 47 veces">raspberry-pi</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=raspberry_pi_2" title="Usada 23 veces">raspberry_pi_2</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=raspberrypi" title="Usada 17 veces">raspberrypi</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=raspbian" title="Usada 15 veces">raspbian</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=robotics" title="Usada 15 veces">robotics</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=rpi2" title="Usada 12 veces">rpi2</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=rpiintermediate" title="Usada 10 veces">rpiintermediate</a></li>
+            <li class="jive-tagset-popularity0"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=scpi" title="Usada 16 veces">scpi</a></li>
+            <li class="jive-tagset-popularity9"><a href="https://www.element14.com/community/community/raspberry-pi/blog/tags#/?tags=tutorial" title="Usada 262 veces">tutorial</a></li>
+    </ul>
+
+        
+    </div>
+    </div>
+
+            <div class="j-box" id="blog-nav-recent-posts">
+                <header>
+                    <h4>Publicaciones recientes</h4>
+                </header>
+                <div class="j-box-body">
+                        <ul class="j-simple-list">
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2017/11/23/polipastos-de-cadena-o-aparejos-manuales-y-electricos">¡POLIPASTOS DE CADENA O APAREJOS MANUALES Y ELECTRICOS!</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/05/02/whip-up-a-pistorm-with-your-amiga-500-and-raspberry-pi">Whip up a PiStorm with your Amiga 500 and Raspberry Pi</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/04/23/sparkfun-pro-micro-rp2040">SparkFun Pro Micro RP2040</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/04/19/program-rpi-pico-using-mbed-library-with-arduino-ide">Program RPi Pico using Mbed library with Arduino IDE</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/04/17/program-rpi-pico-using-arduino-pico">Program RPi Pico using Arduino-Pico</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/04/14/arduino-pico">Arduino-Pico</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/03/20/raspberry-pi-netflix-one-line-easy-install">Raspberry Pi Netflix One Line Easy Install</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/02/28/karen-pi-top-4-meets-physical-computing-students">Karen pi-top 4! meets physical computing students</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/02/13/doggraphicdisplaypico-control-a-dog-graphic-display-with-the-raspberry-pi-pico">DogGraphicDisplayPico - control a DOG graphic display with the Raspberry Pi Pico</a></li>
+                                <li><a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/02/07/debugging-the-raspberry-pi-pico-on-windows-10">Debugging the Raspberry Pi Pico on Windows 10</a></li>
+                        </ul>
+
+                </div>
+            </div>
+
+             
+             
+
+<!-- BEGIN sidebar box 'Incoming Links' -->
+<div class="j-box">
+    <header>
+        <h4>Enlaces entrantes</h4>
+    </header>
+    <div class="j-box-body">
+        <ul class="j-icon-list">
+                    <li>
+                        <a href="https://www.element14.com/community/community/raspberry-pi/blog/2021/02/13/doggraphicdisplaypico-control-a-dog-graphic-display-with-the-raspberry-pi-pico">
+            <span class="jive-icon-med jive-icon-blog" title=""></span>
+                            DogGraphicDisplayPico - control a DOG graphic display with the Raspberry Pi Pico
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.element14.com/community/docs/DOC-96021#comment-273818">
+            <span class="jive-icon-med jive-icon-document-comment" title=""></span>
+Comentario en ''Raspberry Pi Pico''                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+<!-- END sidebar box 'Incoming Links' -->
+
+
+ </div>
+</div>
+ <!-- END small column -->
+
+</div>
+<!-- BEGIN layout -->
+
+</div></section>
+    <div class="webinarPopup webinarPopup5787 maximised" style="display: none;"><p class="controlsBox"><span id="minimiseButton" class="jive-icon-glyph minmaxButton icon-minus-circle" onclick="e14ContentPopups.minimise(5787);"></span><span class="jive-icon-glyph icon-cancel-circle" onclick="e14ContentPopups.notInterested(5787);"></span></p><p class="popupTitle"><a href="https://www.element14.com/community/events/5787/l/iot-development-with-open-standards-and-6lowpan-win-an-iot-out-of-the-box-kit">IoT Development with Open Standards and 6LoWPAN! (Win an IoT Out of the Box Kit!)</a></p><span class="e14-button-secondary e14-button-medium joinButton hideOnMaximise"><a onclick="e14ContentPopups.joinWebinar(5787);" title="Join Webinar">Join Webinar</a></span><span class="clockLabel">Webinar starts in: <div id="countdown5787"><div id="Stage_jbeeb_3" style="padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 100%; vertical-align: top; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; text-size-adjust: 100%; user-select: none; cursor: default; transform-origin: 0px 0px; left: 0px; top: 0px; height: 32px; width: 160px; box-shadow: none; position: relative; display: block; clear: both; zoom: 1; overflow: visible;"><div id="Container_jbeeb_6" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 100%; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; background-color: rgb(54, 93, 139); text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 2.66667px; top: 0px; height: 18.6667px; width: 48px; border-radius: 1.4px; box-shadow: rgb(0, 0, 0) 0px 1px 2px; z-index: 0;"><div id="TextBox_jbeeb_7" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 18.6667px; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 0px; top: 1.2px; height: 18.6667px; width: 48px; box-shadow: none; white-space: nowrap; line-height: 1em; color: rgb(255, 255, 255); font-family: Arial; text-align: center; font-weight: normal; text-shadow: none; text-decoration: none; zoom: 1; z-index: 0;"><span style="font-family: Arial;">08</span></div></div><div id="TextBox_jbeeb_8" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 10.2667px; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 0px; top: 27.6667px; height: 9.33333px; width: 53.3333px; box-shadow: none; white-space: nowrap; line-height: 0.909091em; color: rgb(48, 48, 48); font-family: Arial, _sans; text-align: center; font-weight: bold; text-shadow: none; text-decoration: none; zoom: 1; z-index: 1;"><span style="font-family: Arial, _sans;">HORAS</span></div><div id="Container_jbeeb_9" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 100%; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; background-color: rgb(54, 93, 139); text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 56px; top: 0px; height: 18.6667px; width: 48px; border-radius: 1.4px; box-shadow: rgb(0, 0, 0) 0px 1px 2px; z-index: 2;"><div id="TextBox_jbeeb_10" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 18.6667px; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 0px; top: 1.2px; height: 18.6667px; width: 48px; box-shadow: none; white-space: nowrap; line-height: 1em; color: rgb(255, 255, 255); font-family: Arial; text-align: center; font-weight: normal; text-shadow: none; text-decoration: none; zoom: 1; z-index: 0;"><span style="font-family: Arial;">57</span></div></div><div id="TextBox_jbeeb_11" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 10.2667px; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 53.3333px; top: 27.6667px; height: 9.33333px; width: 53.3333px; box-shadow: none; white-space: nowrap; line-height: 0.909091em; color: rgb(48, 48, 48); font-family: Arial, _sans; text-align: center; font-weight: bold; text-shadow: none; text-decoration: none; zoom: 1; z-index: 3;"><span style="font-family: Arial, _sans;">MINS</span></div><div id="Container_jbeeb_12" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 100%; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; background-color: rgb(54, 93, 139); text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 109.333px; top: 0px; height: 18.6667px; width: 48px; border-radius: 1.4px; box-shadow: rgb(0, 0, 0) 0px 1px 2px; z-index: 4;"><div id="TextBox_jbeeb_13" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 18.6667px; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 0px; top: 1.2px; height: 18.6667px; width: 48px; box-shadow: none; white-space: nowrap; line-height: 1em; color: rgb(255, 255, 255); font-family: Arial; text-align: center; font-weight: normal; text-shadow: none; text-decoration: none; zoom: 1; z-index: 0;"><span style="font-family: Arial;">12</span></div></div><div id="TextBox_jbeeb_14" style="position: absolute; overflow: visible; padding: 0px; margin-right: 0px; margin-bottom: 0px; border-image: initial; font-size: 10.2667px; vertical-align: baseline; outline: 0px; background-image: none; background-attachment: initial; background-origin: initial; background-clip: padding-box; text-size-adjust: 100%; user-select: none; cursor: inherit; transform-origin: 0px 0px; left: 106.667px; top: 27.6667px; height: 9.33333px; width: 53.3333px; box-shadow: none; white-space: nowrap; line-height: 0.909091em; color: rgb(48, 48, 48); font-family: Arial, _sans; text-align: center; font-weight: bold; text-shadow: none; text-decoration: none; zoom: 1; z-index: 5;"><span style="font-family: Arial, _sans;">SEGS</span></div></div></div></span><br><div class="webinarPopup5787 eventPopupHideOnMinimise" style="display: none;"><a onclick="e14ContentPopups.joinWebinar(5787); return false;"><img src="./PicoMKRAdapter_MKR_Shields_files/2432853-Webinar-IoTMythBusters-Facebook.png"></a><p><span class="notInterested" onclick="e14ContentPopups.notInterested(5787);">Not Interested</span></p><p class="neverTellMeAgain"><input type="checkbox" onclick="$j(&#39;#navLogin&#39;).trigger(&#39;click&#39;);return false;">Never tell me about upcoming webinars again</p></div></div><div id="j-footer-wrap" class="j-js-footer-wrap"><footer id="j-footer" role="contentinfo"><section class="col-ends"><span class="logo"></span><p class="logo-text j-hidden-mobile">element14.com es la primera comunidad online específicamente para ingenieros. Conéctese con sus colegas y reciba respuestas de expertos a sus preguntas.</p></section><section class="col-ends go-right"><h3 class="j-hidden-mobile">Siga a element14</h3><ul class="social"><li><a href="https://www.facebook.com/e14community/" target="_blank" rel="nofollow noopener" class="social-icon facebook default">Facebook</a></li><li><a href="https://twitter.com/E14Community" target="_blank" rel="nofollow noopener" class="social-icon twitter default">Twitter</a></li><li><a href="https://www.linkedin.com/company/newark-element14/" target="_blank" rel="nofollow noopener" class="social-icon linkedin default">pf.footer.follow.linkedin.link</a></li><li><a href="https://www.youtube.com/user/element14" target="_blank" rel="nofollow noopener" class="social-icon youtube default">YouTube</a></li></ul></section><section class="col-middle"><ul class="footer-list"><li id="footer-nav-link-content"><a href="https://www.element14.com/community/content" data-icid="footer_content_all"><span>Contenido</span></a></li><li id="footer-nav-link-participate"><a href="https://www.element14.com/community/docs/DOC-74927" data-icid="footer_participate"><span>Participe</span></a></li><li id="footer-nav-link-learn"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_learn]" data-icid="footer_learn"><span>Aprenda</span></a></li><li id="footer-nav-link-discuss"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_discuss]" data-icid="footer_discuss"><span>Debates</span></a></li><li id="footer-nav-link-build"><a href="https://www.element14.com/community/places?filterID=all~tag[nav_build]" data-icid="footer_build"><span>Construya</span></a></li><li id="footer-nav-link-designcenter"><a href="https://www.element14.com/community/community/designcenter" data-icid="footer_members_all"><span>Encontrar producto  </span></a></li><li id="footer-nav-link-store"><a href="https://mexico.newark.com/?COM=element14_store_RaspberryPi" id="footer-nav-link-store-url" target="_blank"><span>Tienda</span></a></li></ul><ul class="footer-list sm-list"><li id="footer-nav-link-about"><a href="https://www.element14.com/community/static/about" data-icid="footer_aboutus"><span>Acerca de nosotros</span></a></li><li id="footer-nav-link-support"><a href="https://www.element14.com/community/community/support" data-icid="footer_support"><span>Comentarios y soporte</span></a></li><li id="footer-nav-link-faq"><a href="https://www.element14.com/community/docs/DOC-1071" data-icid="footer_FAQ"><span>Preguntas frecuentes</span></a></li><li id="footer-nav-link-terms"><a href="https://www.element14.com/community/static/legal/e14fullterms" data-icid="footer_terms"><span>Condiciones de uso</span></a></li><li id="footer-nav-link-privacy"><a href="https://www.element14.com/community/static/legal/e14fullterms#privacy" data-icid="footer_privacy"><span>Declaración de privacidad</span></a></li><li id="footer-nav-link-Cookies"><a href="https://www.element14.com/community/static/about_cookies" data-icid="footer_cookies"><span>Cookies</span></a></li><li id="footer-nav-link-sitemap"><a href="https://www.element14.com/community/community/support/sitemap" data-icid="footer_sitemap"><span>Mapa del sitio web</span></a></li></ul><div class="copyright"><p>Una empresa del grupo Premier Farnell</p><p>© 2009-2021 Premier Farnell Ltd. Todos los derechos reservados. ICP 备案号 10220084.</p><p>Premier Farnell Ltd, una empresa registrada en Inglaterra y el País de Gales con el número 00876412 y cuya oficina registrada se encuentra ubicada en Farnell House, Forge Lane, Leeds, LS12 2NE.</p></div></section><div id="j-poweredBy-wrap"><div id="j-footer-poweredBy"><a class="font-color-meta" href="https://www.jivesoftware.com/poweredby/" target="_blank" rel="nofollow noopener"><img src="./PicoMKRAdapter_MKR_Shields_files/powered_by_Jive.png" alt="Con tecnología de Jive. Customised and maintained by an awesome team in element14 :)" loading="lazy"></a></div></div><div class="j-footer-jiveVersion font-color-meta">Versión de element14 Software: 9.0.5.10 jx, revisión: 20190618211432.998b920.lithium_9.0.5.x-jx</div><span id="speakSpan" class="j-508-label" role="marquee" aria-live="assertive" aria-relevant="all"></span></footer></div></div><div id="jiveTT-note" class="jive-tooltip2 notedefault snp-mouseoffset" role="tooltip"><div class="jive-tooltip2-mid j-mini-modal j-mini-modal-place"><div class="jive-tooltip2-mid-padding j-modal-content clearfix j-js-note-body" id="jive-note-body"></div></div></div><div id="jiveTT-note-additems" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-additems-body"></div></div></div><div id="jiveTT-note-checkpoint" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-checkpoint-body"></div></div></div><div id="jiveTT-note-tasks" class="jive-tooltip2 notedefault snp-mouseoffset"><div class="jive-tooltip2-mid j-mini-modal"><div class="jive-tooltip2-mid-padding j-modal-content" id="jive-note-tasks-body"></div></div></div><div class="j-alert-container" role="alert" aria-live="polite" aria-atomic="true"></div><script>(function() {var prepareUrl = function(url) {if (url.indexOf(";") > 0) {url = url.substring(0, url.indexOf(";"));}if (url.charAt(url.length - 1) == '/') {url = url.substring(0, url.length - 1);}return url}; if (typeof(window._jive_base_url) == "undefined") {window._jive_base_url = prepareUrl("\/community\/")}if (typeof(window._jive_base_absolute_url) == "undefined") {window._jive_base_absolute_url = prepareUrl("https:\/\/www.element14.com\/community")}if (typeof(window._jive_resource_url) == "undefined") {window._jive_resource_url = prepareUrl("\/\/files1.element14.com\/community\/9.0.5.998b920\/")}if (typeof(window._jive_theme_url) == "undefined") {window._jive_theme_url = prepareUrl("\/community\/themes\/e14\/")}if (typeof(window._jive_current_user) == "undefined") {window._jive_current_user = {anonymous: true, partner: false, visible: true, username: 'ANONYMOUS', ID: '-1', enabled: true, avatarID: '-1', displayName: 'ANONYMOUS'};}})(); var _jive_effective_user_id = "-1"; var _jive_auth_token ="no-user"; var _jive_locale = "es"; var _jive_translation_language = "es"; var _jive_browser_event = {"providers":["activityStream.poll","appAlert.create","inboxCount.poll"],"since":1620190793809}; var _jive_browser_event_polling_delay =  30000.0 ; var _jive_socket_events = {"socketEvents":["activityStream.push","tiledata.push"]}; var _jive_realtime_push_enabled =  false ; var _jive_allstream_counts_enabled =  false ;var _jive_timezoneoffset =  -6.0 ; var _jive_server_timezoneoffset =  0.0 ; var _jive_enable_browserdb =  false ; var _jive_i18n_should_minify =  false ; var _jive_nitro_call_delay =  0.0 ; var jive = jive || {}; jive.global = jive.global || {}; jive.global.instanceID = '244fe2dc-e6cf-4df0-9616-b477494e32bd'; jive.global.containerType = '14'; jive.global.containerID = '2475';jive.global.containerBrowseId = '321249';jive.global.subdomain = {}; jive.global.subdomain.mode = 'none'; jive.global.subdomain.template = 'https:\/\/www.element14.com\/community%path%'; jive.global.extensions = {}; window.SPELL_LANGS = "English (Canada)\x3den_ca,+English (United Kingdom)\x3den_gb,English (United States)\x3den_us,French\x3dfr,French (Canada)\x3dfr_ca,German\x3dde,Italian\x3dit,Spanish\x3des"; window.CS_BASE_URL = "\/community"; window.CS_RESOURCE_BASE_URL = "\/\/files1.element14.com\/community\/9.0.5.998b920"; window.tinyMCEPreInit = {suffix : "_src", base : CS_BASE_URL + "/resources/scripts/tiny_mce3"}; if (typeof(_jive_project_i18n) == "undefined") {var _jive_project_i18n = new Array(); _jive_project_i18n['project.calendar.task'] = "Tarea"; _jive_project_i18n['project.calendar.tasks'] = "Tareas"; _jive_project_i18n['project.calendar.checkpoint'] = "Punto de referencia"; _jive_project_i18n['project.calendar.checkpoints'] = "Puntos de referencia"; _jive_project_i18n['global.edit'] = "Editar"; _jive_project_i18n['global.delete'] = "Eliminar"; _jive_project_i18n['project.task.mark.complete'] = "Marcar como completada"; _jive_project_i18n['project.task.assign.to.me'] = "Asignármelo"; _jive_project_i18n['task.incomplete.link'] = "Incompleta"; _jive_project_i18n['project.checkPoint.create.link'] = "Crear un punto de referencia"; _jive_project_i18n['project.task.create.link'] = "Crear una tarea";}_jive_current_user.email = 'null'; _jive_current_user.external =  false ;</script><script>$j(function() {require(['jive/responsive'], function(responsive) { responsive.init(); });});</script><script>var containerShortUrl = "\/community\/container-short.jspa"; var videoShortUrl = "\/community\/view-video-short.jspa"; var profileShortUrl = "\/community\/profile-short.jspa"; var profileLoadingTooltip = "Cargando el perfil del usuario"; var profileErrorTooltip = "Se produjo un error al cargar esa información del perfil."; var followErrorMessage = "Se produjo un error interno mientras se realizaba el seguimiento del objeto."; var ajaxErrorMessage = "Se produjo un error inesperado. Asegúrese de que su sesión no haya caducado mientras miraba esta página."; var ajaxNotFoundMessage = "No se encontró el elemento especificado.";; var ajaxUnauthorizedMessage = "No está autorizado a realizar esta operación. Si no ha iniciado sesión, iníciela e inténtelo nuevamente.";
+        (function() {
+            var originalWrite = document.write;
+            document.write = function() {
+                if(typeof $j != 'undefined' && $j.isReady) {
+                    console.warn("document.write called after document was loaded: ", arguments);
+                }
+                else {
+                    // In IE before version 8 `document.write()` does not
+                    // implement Function methods, like `apply()`.
+                    return Function.prototype.apply.call(originalWrite, document, arguments);
+                }
+            }
+        })();
+        </script><script>
+reg(["osapi","shindig","gadgets"], ["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/e4a8e6c752ff5debfbae8782e5e2d54d.js"],function() {
+define('gadgets', gadgets); define('shindig', shindig); define('osapi', osapi);
+
+
+});
+</script><script type="text/javascript">window.appsMarketEnabled =  false ; window.anyAppsEnabled =  true ; window.appUUIDs = ""; $j(document).ready(function() {require(['appContainer'], function(appContainer) {});});</script><script>
+reg(["JAF","appContainer","syntheticAppContainer"], ["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/0b121ebaeb5a58c904cb73496ce84c20.js"],function() {
+define('JAF', ['osapi'], function(osapi) {return {};});
+
+$j(document).ready(function() {define('appContainer', ['jive/app/core_container/'+'main', 'jive/app/core_container/'+'common_container'], function(C) {var c = new C(); c.initActionLinkContext({coreAPIType: 'osapi.jive.core.Post', id: 37075  }); return c;}); define('syntheticAppContainer', ['appContainer'], function(c) {return c;});});
+
+
+});
+</script><script type="text/javascript">if (window.jQuery) window.jQuery.migrateMute = true;</script><script src="./PicoMKRAdapter_MKR_Shields_files/bf7d358b3057f86b69fc37f1d106bb20.js"></script>
+<script>
+jive.rte.defaultStyles = ["\/\/files1.element14.com\/community\/9.0.5.998b920\/plugins\/gamification_9.0.5.0\/resources\/styles\/n4jive.concat.css?v\x3d2021-04-27 01:20","\/\/files1.element14.com\/community\/9.0.5.998b920\/plugins\/javascript-libraries_1.8.0 2021-04-23@11:00 e14comm-release-2021-2-1916e82\/..\/..\/..\/themes\/e14\/styles\/theme-min.css?v\x3d2021-04-27 01:20","\/\/files1.element14.com\/community\/9.0.5.998b920\/plugins\/javascript-libraries_1.8.0 2021-04-23@11:00 e14comm-release-2021-2-1916e82\/..\/..\/..\/themes\/images\/temp\/newtheme\/styles\/overrides\/override-newark.css?v\x3d2021-04-27 01:20"];
+
+jive.observable = jive.conc.observable; jive.rte.mobileUI = false;
+
+jive.global.typeToNumeric = {"embedded_video":1100,"webhook":1224013431,"placeTemplateEntity":1567134318,"dm":109016030,"project":600,"discussion":1,"poll":18,"profileImage":501,"blog":37,"space":14,"post":38,"roadTest":582441006,"announcement":22,"group":700,"2901":2901,"image":111,"placeTemplateCategory":955999628,"static":1140061448,"securityGroup":4,"externalStreamInstance":1094237539,"task":602,"system":-2,"roadTestReview":293607990,"slide":1606291040,"person":3,"extprop":-1840153649,"extStreamActivity":-960826044,"page":-2106121635,"contentVersion":120,"favorite":800,"streamEntry":1501,"document":102,"designChallenge":764276805,"update":1464927464,"video":1100,"carousel":1527402675,"mention":550,"file":102,"attachment":13,"stream":-891990144,"share":109400031,"tileInstance":1094237539,"profileField":500,"event":96891546,"outcome":2700,"tileDefinition":1803367074,"message":2,"roadTestApp":167932143,"url":801,"collaboration":2800,"privateprop":987082157,"interaction":2801,"comment":105,"invite":350,"user":2020,"extStreamDefinition":1803367074}; jive.global.typeToMacroName = {"embedded_video":"videolink","document":"document","designChallenge":"designChallenge","project":"project","update":"microblog","discussion":"thread","poll":"polls","video":"videolink","blog":"blog","message":"message","roadTestApp":"roadTestApp","space":"community","url":"external-site","task":"task","file":"document","post":"blogpost","roadTestReview":"roadTestReview","person":"user","roadTest":"roadTest","extStreamActivity":"tilestream","event":"event","group":"group"};
+
+$j.ajaxSettings.traditional = true;
+
+$j(function(){define('documentReady',document);});
+
+require(['tAMD/hooks'], function(h) {h.on('define', 'Zapatec.Calendar', function(id, deps, factory, next) {reg(['Zapatec.Calendar.translations'], ['\/\/files1.element14.com\/community\/9.0.5.998b920\/resources\/scripts\/zapatec\/zpcal\/lang\/calendar-es.js'], function() {define('Zapatec.Calendar.translations', {});}); require(['Zapatec.Calendar.translations'], $j.noop); next(id, deps.concat('Zapatec.Calendar.translations'), factory);}); h.on('publish', 'Zapatec.Calendar', function(id, Calendar, next) {Calendar._TT["DEF_DATE_FORMAT"] = "%d\/%m\/%Y"; next(id, Calendar);});});
+
+$j(document).ready(function() {var followView = new jive.FollowUserApp.ProfileFollowView({i18n: {startFollowingMessage: '<p>Ahora está siguiendo a {0}</p>', stopFollowingMessage:  '<p>Dejó de seguir a {0}.</p>', pendingConnectionMessage: '<p>Nota: {0} necesita aprobar su solicitud</p>'}, bidirectional: false}); var jiveUserFollow = new jive.FollowUserApp.Main({followView: followView}); $j("input[placeholder]").placeHeld();});
+
+</script>
+<script>var containerType = '14'; var containerID = '2475';var spotlightSearchURL = "spotlight-search";</script><script>window._jive_images_enabled = false; window._jive_video_module_enabled = false;</script><script>
+reg(["jive.rte"], ["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/22830215b5d4935298a3d5171fc1de2c.js"],function() {
+window.errorHandlerMessage = "An error occurred:";
+            window.editorErrorHandler = function(message, exception) {
+              // if the message is something other than a timeout, show the message plus the error code
+              if (message.indexOf('Timeout') == -1) {
+                  $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
+                  $j('#dwr-error-table').fadeIn();
+                  setTimeout(function() {
+                      $j('#dwr-error-table').fadeOut();
+                  }, 10000);
+              }
+            };
+            if(typeof(tinyMCE) != "undefined"){tinyMCE.addI18n('es.jivemacros',{"unused.jive.key" : "nothing."});}
+          window.RawHTMLSaveFunction = function(element_id, html, body){
+              var text = $j('#'+element_id);
+              if (text.is(':not(:visible)')) {
+                  return html;
+              }else{
+                  return text.val();
+              }
+          }
+          jive.rte.multiRTE = new Array();
+  
+          //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
+          window.refreshLinks = function() {
+              jive.rte.multiRTE.forEach(function(rteID) {
+                  if ($j('#' + rteID + '_parent').length < 1) {
+                      // safari 2, text only
+                      $j('#' + rteID + '_toggle_html').hide();
+                      $j('#jivePreferredEditorModeLinkHREF').hide();
+                      return;
+                  }
+  
+                  if(currentMode == 'rawhtml') {
+                      $j('#' + rteID + '_toggle_html').css('display', 'block');
+                  }else{
+                      $j('#' + rteID + '_toggle_html').hide();
+                  }
+  
+                  if (preferredMode == currentMode) {
+                      $j('#jivePreferredEditorModeLinkHREF').hide();
+                  } else {
+                      $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
+                  }
+              });
+          }
+  
+          window.editor = new jive.ext.y.HashTable();
+          
+
+
+jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]}], [{name: "__default_attr",value: ["java","plain","xml","html","sql"]}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("tag","tags/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "tag",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "name",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("user","people/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""},{name: "username",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("alert","","TEXT", false, true, [{ name: "success", deleteAll: true, params: [{ name: "__default_attr", value :"success"} ,{ name: "alert", value :"success"} ]},{ name: "info", deleteAll: true, params: [{ name: "__default_attr", value :"info"} ,{ name: "alert", value :"info"} ]},{ name: "warning", deleteAll: true, params: [{ name: "__default_attr", value :"warning"} ,{ name: "alert", value :"warning"} ]},{ name: "danger", deleteAll: true, params: [{ name: "__default_attr", value :"danger"} ,{ name: "alert", value :"danger"} ]}], [{name: "__default_attr",value: ""},{name: "alert",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("flag","","INLINE", false, true, [{ name: "new", deleteAll: true, params: [{ name: "flag", value :"new"} ]},{ name: "updated", deleteAll: true, params: [{ name: "flag", value :"updated"} ]}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("kaltura","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerKey",value: ""},{name: "playerID",value: ""},{name: "partnerID",value: ""},{name: "playerColor",value: "#FFFFFF"},{name: "sourcedomain",value: ""}], false,false));
+jive.rte.macros.push(new jive.rte.Macro("brightcove","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerKey",value: ""},{name: "playerID",value: ""}], false,false));
+jive.rte.macros.push(new jive.rte.Macro("brightcoveext","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("showandshare","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""},{name: "playerColor",value: "#000000"},{name: "sourcedomain",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("application","","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "__title",value: ""},{name: "__view",value: ""},{name: "__params",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("appEmbeddedView","","INLINE", true, false, [], [{name: "_default_attr",value: ""},{name: "_appuuid",value: ""},{name: "_title",value: ""},{name: "_view",value: ""},{name: "_context",value: ""},{name: "_url",value: ""},{name: "_previewimage",value: ""},{name: "_icon",value: ""},{name: "_action_id",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("tilestream","external/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("videomacro","?container=13937&containerType=37","IMAGE", true, false, [], [{name: "__default_attr",value: ""},{name: "videoid",value: ""},{name: "imageURL",value: ""},{name: "width",value: ""},{name: "src",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("videolink","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("event","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("roadTest","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("roadTestApp","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("roadTestReview","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("Equation Editor","/plugins/rte-extension/resources/templates/eqed.htm","INLINE", true, true, [], [], true,true));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEProductLink","/e14-product-linker.jspa","INLINE", true, true, [{ name: "Product Link", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEImageGalleryLink","/plugins/rte-extension/resources/templates/image-gallery.html","INLINE", true, true, [{ name: "Image Gallery", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTETabbedContentLink","/plugins/rte-extension/resources/templates/tabbed-content.html","INLINE", true, true, [{ name: "Tabbed Content", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEFilteredTableLink","/plugins/rte-extension/resources/templates/filtered-table.html","INLINE", true, true, [{ name: "Filtered Table", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEGitHubLink","/plugins/rte-extension/resources/templates/github-gist.htm","INLINE", true, true, [{ name: "GitHub Gist", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RegionalContextInjector","/e14-regional-context.jspa","INLINE", true, true, [{ name: "Conditional Content", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEButtonCreator","/e14-button-creator.jspa","INLINE", true, true, [{ name: "Button Creator", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEProduct360","/e14-product-360.jspa","INLINE", true, true, [{ name: "Product 360", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEMicroPoll","/e14-micro-poll.jspa","INLINE", true, true, [{ name: "Poll", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTESocialMediaPost","/e14-social-media-post.jspa","INLINE", true, true, [{ name: "Twitter Post", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14RTEPodcast","/e14-podcast.jspa","INLINE", true, true, [{ name: "Podbean Podcast", deleteAll: true, params: []}], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("productLink","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "farnellcode", value :""} ,{ name: "newarkcode", value :""} ,{ name: "linkstyle", value :""} ,{ name: "comcode", value :""} ]}], [{name: "farnellcode",value: ""},{name: "newarkcode",value: ""},{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""},{name: "linkstyle",value: ""},{name: "comcode",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14Button","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "buttonurl", value :""} ,{ name: "buttonid", value :""} ,{ name: "buttontype", value :""} ,{ name: "buttonsize", value :""} ,{ name: "buttontarget", value :""} ,{ name: "buttononclick", value :""} ]}], [{name: "buttontype",value: ""},{name: "buttonid",value: ""},{name: "buttononclick",value: ""},{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "buttonurl",value: ""},{name: "buttontarget",value: ""},{name: "jivemacro_uid",value: ""},{name: "buttonsize",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14Product360","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "snippet", value :""} ,{ name: "displaytype", value :""} ,{ name: "logo", value :""} ]}], [{name: "snippet",value: ""},{name: "displaytype",value: ""},{name: "logo",value: ""},{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("gist","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "title", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "gist_id", value :""} ]}], [{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""},{name: "gist_id",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14MicroPoll","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "title", value :""} ,{ name: "title", value :""} ,{ name: "pollid", value :""} ,{ name: "pollname", value :""} ,{ name: "afterpoll", value :""} ]}], [{name: "pollname",value: ""},{name: "afterpoll",value: ""},{name: "pollid",value: ""},{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14SocialMediaPost","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "title", value :""} ,{ name: "post_url", value :""} ,{ name: "post_width", value :""} ,{ name: "post_body", value :""} ,{ name: "post_author", value :""} ,{ name: "post_show_media", value :""} ,{ name: "post_type", value :""} ]}], [{name: "post_show_media",value: ""},{name: "post_author",value: ""},{name: "post_url",value: ""},{name: "post_width",value: ""},{name: "post_type",value: ""},{name: "id",value: ""},{name: "post_body",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("e14Podcast","","INLINE", true, false, [{ name: "default", deleteAll: true, params: [{ name: "id", value :""} ,{ name: "__default_attr", value :""} ,{ name: "jivemacro_uid", value :""} ,{ name: "title", value :""} ,{ name: "podcast_id", value :""} ,{ name: "podcast_type", value :""} ]}], [{name: "podcast_id",value: ""},{name: "id",value: ""},{name: "title",value: ""},{name: "__default_attr",value: ""},{name: "jivemacro_uid",value: ""},{name: "podcast_type",value: ""}], true,false));
+define('jive.rte', jive.rte);
+
+
+});
+</script><script src="./PicoMKRAdapter_MKR_Shields_files/bundle_es.js"></script><script src="./PicoMKRAdapter_MKR_Shields_files/f930e8ae106d69baa3e2352a6747c93b.js"></script>
+<script>
+        var _editor_lang = "es";
+        var _jive_video_picker__url = "?container=2475&containerType=14"
+        var _jive_comment_images_enabled = false;
+
+
+reg(["apps/userpicker/views/select_skill_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/2ba6e2a46eb8ecbfbf88eae20c714664.js"]);
+
+reg(["apps/static_files/static_file_modal"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/a36fbca49cee2ea1433b558fba09794d.js"]);
+
+reg(["apps/shared/views/date_picker_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/c07aa2f0a86bb075eb407f2beed514f2.js"]);
+
+reg(["apps/places/actions/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/7a10f4832922e3858e889efbe358533e.js"]);
+
+reg(["soy!jive.UserPicker.soy.renderModalSkillSearchButton"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/828132231c89582d1df2ec02b0274ac8.js"]);
+
+reg(["apps/places/manage/views/archive_controls"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/247fab031ca6896aec6f0beb854a83fc.js"]);
+
+reg(["soy!jive.extended_invitation.warn_bar"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/a851a945f362107f3e801b6e1a2a88cc.js"]);
+
+reg(["apps/contentplace_relationship/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/74c6b7c1b55baf0e079374114e2bcb3b.js"]);
+
+reg(["apps/shared/models/lazy_corev3"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/7ded0359e089fd43033fc450d425b8c0.js"]);
+
+reg(["apps/invitation/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/675e1367fe8c7da93d079b3b3927452a.js"]);
+
+reg(["apps/movecontent/main"],[]);
+
+reg(["apps/share/main"],[]);
+
+reg(["apps/places/manage/views/author_by_email_controls"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/d7b287be1a26e8d4dcb1fe3e46daa113.js"]);
+
+reg(["apps/places/manage/views/category_controls"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/840b30a2972320a643466d9f340684f5.js"]);
+
+reg(["jive/dispatcher"],[]);
+
+reg(["soy!jive.error.rest.soy.errorFinding"],[]);
+
+        var jiveMembership = new jive.MembershipApp.Main({objectID:2475});
+        var jiveMoveContent = new jive.Move.Content.Main({
+                objectType: 38,
+                objectID: 37075,
+                personalContainerTitleKey:'nav.bar.create.personal_container.title.blogpost',
+                personalContainerCaptionKey:'nav.bar.create.personal_container.caption.blogpost',
+                searchPlaceholderKey:'place.picker.move.search.blogpost',
+                containerID: 2475,
+                containerType: 14});
+        var jiveReportAbuse = new jive.Modalizer.Main({triggers:['#jive-link-abuse a'],liveTriggers:['.js-link-abuse'], width: 'medium'});
+        $j(function() { new jive.EmailNotification.Main(37075, 38); });
+
+
+    
+    function toggleFeatured() {
+        $j.post(jive.rest.url("/featuredContent/toggle/" + 38 +"/"+ 37075+"/"+2475+"/"+14))
+            .then(function(featured) {
+                if (featured == "true") {
+                    $j('#featured-toggle-feature').hide();
+                    $j('#featured-toggle-unfeature').show();
+                } else {
+                    $j('#featured-toggle-unfeature').hide();
+                    $j('#featured-toggle-feature').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured == "true") {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>¡Este elemento ahora está destacado!</div>');
+                           
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>Ha eliminado esto del contenido destacado.</div>');
+                        }
+                    }
+                });
+            });
+    }
+
+    function toggleFeaturedOnProfile() {
+        $j.post(jive.rest.url("/featuredContent/toggle/" + 38 +"/"+ 37075))
+            .then(function(featured) {
+                if (featured == "true") {
+                    $j('#featured-toggle-feature-onprofile').hide();
+                    $j('#featured-toggle-unfeature-onprofile').show();
+                } else {
+                    $j('#featured-toggle-unfeature-onprofile').hide();
+                    $j('#featured-toggle-feature-onprofile').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured == "true") {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>¡Este elemento ahora está destacado!</div>');
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>Ha eliminado esto del contenido destacado.</div>');
+                        }
+                    }
+                });
+            });
+    }
+
+
+$j(function() {require(['apps/guided_navigation/main'], function(M) {var main = new M();});});
+
+reg(["apps/rate/main"],[]);
+
+reg(["soy!jive.rate.soy.renderRating"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/8966759bbb0cd1f2d02e293f2123d17f.js"]);
+
+        define("commentMacroApps", ['apps/comment_app/main'], function(CommentAppMain) {
+        var options = {
+        resourceType:       38,
+        resourceID:         37075,
+
+        containerType:      14,
+        containerID:        2475,
+
+        keepAliveEnabled:   true,
+
+        contentObject: {
+            object:            37075,
+            contentObjectType: 38
+        },
+
+            listAction:         "/community/comment-list.jspa",
+
+        isAnonymous:        true,
+        isThreaded:         true,
+        isFinalized:        false,
+
+        paginate:           true,
+
+        pageSize:           25,
+        isPrintPreview:     false,
+        rteOptions : {
+        preset        : "mini-w-quote",
+        preferredMode : "advanced",
+        startMode     : "advanced",
+        mobileUI      : false,
+        toggleText    : 'Mostrar el editor completo',
+        alwaysUseTabText : 'Siempre utilizar este editor',
+        editDisabledText : 'Está utilizando un dispositivo que sólo le permite agregar contenido.',
+        editDisabledSummary : 'Si accede a {0} desde una computadora, puede agregar y editar su contenido.',
+        communityName : 'element14 Community',
+        height        : 200,
+        images_enabled: window._jive_comment_images_enabled
+
+        },
+        i18n: {
+        confirmDeleteComment:    '¿Está seguro que quiere eliminar este comentario?',
+        postSuccessText:         'Su comentario se agregó con éxito pero necesitará ser aprobado por un moderador antes de su publicación.',
+        cmntEditingTitle:        'Editar un comentario',
+        globalAjaxError:         'Se produjo un error inesperado. Asegúrese de que su sesión no haya caducado mientras miraba esta página.',
+        replyToTitle:            'Responder a {0}',
+        formSubmitPleaseWait:    'Espere...',
+        globalLoginRequired:     'Ya no está conectado. {0}Inicie sesión{1} para continuar.',
+        loading:				 'cargando...'
+        }
+        };
+
+
+        // Create a separate CommentApp instance for each tab.
+            jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
+
+
+        return jive.CommentApp;
+        });
+
+
+
+reg(["apps/onboarding/views/add_document_collaborator"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/a6df456e07fc6b6b72b53c50fcd70d53.js"]);
+
+reg(["apps/onboarding/views/fill_out_profile"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/0a86ad4f035e050653e1f5d62d9a7aa3.js"]);
+
+reg(["apps/onboarding/views/like_content"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/d45b6eb8f0832a4b8e35d62d7a587a48.js"]);
+
+reg(["apps/onboarding/views/about_you"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/09f4788a0cf4d771e332a7f158055aff.js"]);
+
+reg(["apps/navbar/menu/satellite/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/cbe50e8db0e18aeb6e8ed96a3c828502.js"]);
+
+reg(["apps/onboarding/views/learn_system"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/50de98417cf4b23e1645f984e5dbf580.js"]);
+
+reg(["apps/metric/models/metric_source"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/3b75488235a6e4dd127aa87973e42d36.js"]);
+
+reg(["apps/onboarding/views/create_blogpost"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/84e15cffd20c829fed5f8c72093c2e43.js"]);
+
+reg(["apps/onboarding/views/jive_for_outlook"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/bb8a6570a221874c99fd3d0ae9cd3f22.js"]);
+
+reg(["apps/trial/views/trial_tip_helper"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/d66bd9402de2504d6406e6ced12663fc.js"]);
+
+reg(["apps/onboarding/views/create_or_set_shared_group"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/f937b4213ae18e6ff0a5ff38c172df25.js"]);
+
+reg(["jive/rte/syntax/SyntaxHighlighter"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/acf268596ca155cec8b0cc6d2427efc3.js"]);
+
+reg(["apps/shared/controllers/browser_events"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/e6154bea51a51a92304b1d0c2cf8607f.js"]);
+
+reg(["apps/onboarding/views/create_or_join_group"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/7bb8653479abe3f2459500291337cdd7.js"]);
+
+reg(["jive/app/core_container/views/rtc_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/dedf3f2d5560e2ddbe678b1dcb2bd1a5.js"]);
+
+reg(["ui-modules/spotlight/scripts/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/21a50f8b79237596c08507e5462e47ab.js"]);
+
+reg(["apps/social_sharing/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/3713c22283c6853fa29664e203cf7934.js"]);
+
+reg(["jive/app/core_container/mock"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/1788b6fefe1389b4b90974a0c2158d4b.js"]);
+
+reg(["apps/shared/controllers/socket_holder"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/c3522ddb6b20677dad66fbc6d79558bf.js"]);
+
+reg(["apps/microblogging/status_input_mb_controller"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/87f3c1813a43f328ee573e09da5cbaf5.js"]);
+
+reg(["apps/onboarding/views/create_wall_entry"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/947301280ee45452dca37f956b704836.js"]);
+
+reg(["apps/onboarding/views/create_comment_or_message"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/967ea35e3384c1b95581d9b849712cb8.js"]);
+
+reg(["apps/direct_messaging/factory"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/003b1b3bd3f91ec84a59d7e2234c6329.js"]);
+
+reg(["apps/onboarding/views/jive_anywhere"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/763323beb47042264fe745b77b2a62d7.js"]);
+
+reg(["apps/onboarding/views/create_private_group"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/cbc54ac8dfee358eee73a0824887d3b5.js"]);
+
+reg(["apps/onboarding/views/create_project"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/747fe3e8a5032b85e497aec78bb10a0f.js"]);
+
+reg(["apps/onboarding/views/invite_to_group"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/587743db1504e6d79153116400a09ced.js"]);
+
+reg(["soy!jive.integration.tiles.view.embeddedExperience"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/a56aa1293e675318d599f151861b91a8.js"]);
+
+reg(["apps/filters/view/item_grid_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/ebbb3539e1913553ab92d9c5191b1b47.js"]);
+
+reg(["apps/onboarding/views/jive_for_office"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/790fa995178546f0b3dc2d6c17cd669f.js"]);
+
+reg(["apps/onboarding/views/connect_colleagues"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/68b17e1dc7cc158ef862f14467dfb94b.js"]);
+
+reg(["apps/onboarding/views/mobile_login"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/d86683bc83a268365ea036686125e3a6.js"]);
+
+reg(["apps/tile/embedded_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/0b7b188ec32e9169e317d3988c65217b.js"]);
+
+reg(["apps/onboarding/views/create_thread"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/ab6902b229841ec23ba17866c4473733.js"]);
+
+reg(["jive/app/core_container/main"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/65ccaab0090bda61f7844f2b056b7c32.js"]);
+
+reg(["apps/autosearch/lightbox"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/775acf9a8cd4f2afb449eea1acebe499.js"]);
+
+reg(["apps/trial/models/trial_panel_source"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/ef7ae73f2bbebdd8297f67c390414bf7.js"]);
+
+reg(["apps/onboarding/views/create_document"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/cd6c59c85b60b168082b7731452b4cb6.js"]);
+
+reg(["jive/app/core_container/common_container"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/37404a5e64eb028c5ec16f3be7b76753.js"]);
+
+reg(["Zapatec.Calendar"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/eacc00dd5be844f726475740afd64c71.js"]);
+
+reg(["apps/onboarding/views/invite_users"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/e5c73e7c457109c3d6489020acc2828d.js"]);
+
+reg(["apps/onboarding/views/invite_external_users"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/d85a30b960fad265d98af6cc6960d7f0.js"]);
+
+reg(["apps/onboarding/views/follow_user"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/74c4d624d05978b2a0c5bd697d0efde9.js"]);
+
+reg(["apps/onboarding/views/upload_or_move_file"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/d8bbb9a3e2b0ce0155142ce570476835.js"]);
+
+reg(["apps/tile/integrations/carousel"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/0587ffd7f68c66a8100e29e46b4ef905.js"]);
+
+reg(["apps/trial/views/trial_view"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/a147b835978131912dd30ca0cca926ad.js"]);
+
+reg(["apps/onboarding/views/tour_ui"],["//files1.element14.com/community/9.0.5.998b920/resources/scripts/gen/5918494d4f905119ffca616a6314954f.js"]);
+
+$j(function() {require(['apps/google_oidc_login/main'], function(Main) {window.jiveGoogleOidcLogin = new Main({jiveTokenName: "jive.googleoidc.login", jiveTokenGUID: "1620190793796-C0U5ZGV7PLRAW8OF8B1G4GSV1UIU946", clientID: "null", openIDRealm: "null", redirectURI: "https://www.element14.com/community/googleoidc/sso"});});});
+
+$j(document).ready(function() {new jive.nitro.content.Main({apiKey: "db6a4bacb9d94f89911a8b141a149489", timeStamp: "1620190793", signature: "2c716d14b9c2a12ec4f6df0b8baf44", server: "https://solutions.nitro.bunchball.net/nitro/json", userID: "-1", localizationEnabled: false});});
+
+$j(function() {require(['apps/tips/main'], function(Tips) {var tipsApp = new Tips({tipGroups:[], skippedTipGroupIDs: []});});});
+
+
+                        require(['jquery'], function($) {
+                            $('#navLogin').on('click', function(e) {
+                                var fragment = '';
+                                if (window.location.hash.length > 1){
+                                    fragment = "?fragment=" + window.location.hash.substring(1);
+                                }
+                                $('#navLogin').attr("href", jive.app.url({ path: '/login.jspa' }) + fragment);
+                           });
+                        });
+                        
+
+$j(function(){jive.namespace('Navbar.Menu.Home'); require(['apps/navbar/menu/home/navbar_menu_home_main'], function(Main) {jive.Navbar.Menu.Home.GlobalController = new Main('#j-satNav-indicator');});});
+
+require([ 'apps/activity_stream/activity_notifier', 'apps/activity_stream/models/activity_stream_source', 'apps/shared/controllers/switchboard', 'documentReady', 'jive/responsive' ], function(ActivityNotifier, ActivityStreamSource) {}); require([ 'documentReady' ], function() {jive.onLoadEventComplete = true;});
+
+var authSource = new jive.Authentication.Source({forceSecure: false});var loginApp = new jive.Authentication.Main({authenticationSource: authSource, rememberMe: true, passwordReset: true, forgotUsername: true, externalLoginEnabled: false, showRegisterForm: true, externalLogins: [], facebookEnabled: false, facebookApplicationID: 'blank', usernameIsEmail: false});
+
+reg(["apps/microblogging/status_input_drop_down"],[]);
+
+reg(["apps/tags/tags_controller"],[]);
+
+reg(["apps/microblogging/link_builder"],[]);
+
+reg(["jive/app/rte/artifacts"],[]);
+
+reg(["apps/shared/models/meta_source"],[]);
+
+window.tinyMCE_GZ = { loaded: true };
+
+</script>
+<script src="./PicoMKRAdapter_MKR_Shields_files/79ff32c7aa64ba30c84884c1d25e88b1.js"></script>
+<noscript><img src="https://www.element14.com/akam/11/pixel_11ef4677?a=dD0zZDgzZTNhYTI3YmY2YTA3MDZiMGI4N2FiNDNiNzk2NzFmMWZjNzEzJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript><script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://www.element14.com/community/community/raspberry-pi","name":"Raspberry Pi"}},{"@type":"ListItem","position":2,"item":{"@id":"https://www.element14.com/community/community/raspberry-pi/blog","name":"Blog"}}]}</script><img src="./PicoMKRAdapter_MKR_Shields_files/saved_resource" width="1" height="1"><img src="./PicoMKRAdapter_MKR_Shields_files/saved_resource(1)" width="1" height="1"><img src="./PicoMKRAdapter_MKR_Shields_files/saved_resource(2)" width="1" height="1"><div id="dtmdiv" style="display: none;"></div><script src="./PicoMKRAdapter_MKR_Shields_files/adsct" type="text/javascript"></script></body></html>
